@@ -56,7 +56,7 @@ public class Partida {
 		mugitzekoPieza.setErrenkadaEtaZutabea(errNora-1, zutNora-1);
 		Taula.getTaula().setLaukianPieza(errNon-1, zutNon-1, null);
 	}
-	
+
 	//Metodo bat frogatzeko ea egin nahi duzun mugimendua onargarria den
 	private boolean mugimenduaZuzenaDa(Pieza mugitzekoPieza, int errNora, int zutNora) {
 		return mugitzekoPieza.mugituDaiteke(errNora, zutNora);

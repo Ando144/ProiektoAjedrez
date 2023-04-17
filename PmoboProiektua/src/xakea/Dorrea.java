@@ -5,98 +5,43 @@ public class Dorrea extends Pieza {
     public Dorrea(boolean kolorea, int errenkada, int zutabea) {
         super(kolorea, errenkada, zutabea);
     }
-
-    /*public int maximoaKalkulatu(int N1, int N2) 
-    {
-    	int maximoa =0;
-    	
-    	
-    	//xd
-    	
-    	if (N1 > N2)
-    	{
-    		maximoa =N1;
-    	}
-    	else
-    	{
-    		maximoa=N2;
-    	}
-    	return maximoa;
-    }
-   
-     public int minimoaKalkulatu(int N1, int N2) 
-    {
-    	int minimoa =0;
-    	
-    	if (N1 > N2)
-    	{
-    		minimoa =N2;
-    	}
-    	else
-    	{
-    		minimoa=N1;
-    	}
-    	return minimoa;
-    }*/
-  
-
     @Override
     public boolean mugituDaiteke(int zeinErrenkadara, int zeinZutabera) {
-    	int lerro=0;
-    	int zut=0;
     	int kont =0;
     	boolean ahalDu = true;
     	
-    	//un while para que vaya iterando y que salga cuando llegue a la columna 
-    	//destino, a la errenkada destino o que encuentre una pieza en el camino
-    	while (((zut != zeinErrenkadara) && (lerro != zeinZutabera)) || ahalDu==false) 
-    	{
+			/*Este if es para ver si se mueve en la misma errenkada y el else para el caso en el que se mueva en la misma zutabe */
     		if (zeinErrenkadara == this.getErrenkada())
-    		{
+    		{	/*Este if es para ver a que lado de la torre esta haciendose el movimiento, en este caso es
+				en la parte izquierda de la misma cuando se mueve en horizontal y el else en cambio es para cuando se 
+				mueve a la derecha de la torre tambien en el eje horizontal */
+				
+				//Horizontal Izquierda
     			if (this.getZutabea()>zeinZutabera) 
     			{
     				kont=this.getZutabea()-1;
-    				while(kont != zeinZutabera) 
+					/*Mientras que el contador no llegue a la casilla destino del movimiento especificado(Vertical u Horizontal)
+					 o que haya encontrado una ficha por el camino (ahalDu==false) seguira iterando
+					 */
+    				while((kont != zeinZutabera) || (ahalDu==false)) 
     				{
-    					if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada(), kont)) 
+						/*Mira aver si la casilla especificada tiene alguna pieza y si es el caso ahalDu=false */
+    					if(Taula.getTaula().laukiaBetetaDago(kont, this.getErrenkada())) 
     					{
     						ahalDu=false;
     					}
     					kont=kont-1;
     				}
     			}
-    			else 
+    			else //Horizontal Derecha
     			{
     				kont=this.getZutabea()+1;
-    				while(kont != zeinZutabera) 
+					/*Mientras que el contador no llegue a la casilla destino del movimiento especificado(Vertical u Horizontal)
+					 o que haya encontrado una ficha por el camino (ahalDu==false) seguira iterando
+					 */
+    				while((kont != zeinZutabera) || (ahalDu==false)) 
     				{
-    					if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada(), kont)) 
-    					{
-    						ahalDu=false;
-    					}
-    					kont=kont+1;
-    				}
-    			}
-    		}
-    		else 
-    		{
-    			if (this.getErrenkada()>zeinErrenkadara) 
-    			{
-    				kont=this.getErrenkada()-1;
-    				while(kont != zeinErrenkadara) 
-    				{
-    					if(Taula.getTaula().laukiaBetetaDago( kont,this.getZutabea())) 
-    					{
-    						ahalDu=false;
-    					}
-    					kont=kont-1;
-    				}
-    			}
-    			else 
-    			{
-    				kont=this.getErrenkada()+1;
-    				while(kont != zeinErrenkadara) 
-    				{
+						/*Mira aver si la casilla especificada tiene alguna pieza y si es el caso ahalDu=false */
     					if(Taula.getTaula().laukiaBetetaDago(kont, this.getErrenkada())) 
     					{
     						ahalDu=false;
@@ -105,8 +50,47 @@ public class Dorrea extends Pieza {
     				}
     			}
     		}
-    	}
+    		else 
+    		{	
+				/*Lo mismo que el segundo if de arriba, para ver si el movimiento es hacia arriba o hacia abajo */
+				
+				
+				//Vertical Abajo
+    			if (this.getErrenkada()>zeinErrenkadara) 
+    			{
+    				kont=this.getErrenkada()-1;
+					/*Mientras que el contador no llegue a la casilla destino del movimiento especificado(Vertical u Horizontal)
+					 o que haya encontrado una ficha por el camino (ahalDu==false) seguira iterando
+					 */
+    				while((kont != zeinErrenkadara) || (ahalDu==false)) 
+    				{
+						/*Mira aver si la casilla especificada tiene alguna pieza y si es el caso ahalDu=false */
+    					if(Taula.getTaula().laukiaBetetaDago(this.getZutabea(), kont)) 
+    					{
+    						ahalDu=false;
+    					}
+    					kont=kont-1;
+    				}
+    			}
+    			else //Vertical Arriba
+    			{
+    				kont=this.getErrenkada()+1;
+					/*Mientras que el contador no llegue a la casilla destino del movimiento especificado(Vertical u Horizontal)
+					 o que haya encontrado una ficha por el camino (ahalDu==false) seguira iterando
+					 */
+    				while((kont != zeinErrenkadara) || (ahalDu==false)) 
+    				{
+						/*Mira aver si la casilla especificada tiene alguna pieza y si es el caso ahalDu=false */
+    					if(Taula.getTaula().laukiaBetetaDago(this.getZutabea(), kont)) 
+    					{
+    						ahalDu=false;
+    					}
+    					kont=kont+1;
+    				}
+    			}
+    		}
+
+    	
     	return ahalDu;
     }
 }
-//no esta terminado, de hecho no se si funciona o si es asi

@@ -57,6 +57,7 @@ public class Partida {
 		Taula.getTaula().setLaukianPieza(errNon-1, zutNon-1, null);
 	}
 
+	/* hello */
 	//Metodo bat frogatzeko ea egin nahi duzun mugimendua onargarria den
 	private boolean mugimenduaZuzenaDa(Pieza mugitzekoPieza, int errNora, int zutNora) {
 		return mugitzekoPieza.mugituDaiteke(errNora, zutNora);

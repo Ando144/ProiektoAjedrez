@@ -6,7 +6,7 @@ public class Dorrea extends Pieza {
         super(kolorea, errenkada, zutabea);
     }
 
-    public int maximoaKalkulatu(int N1, int N2) 
+    /*public int maximoaKalkulatu(int N1, int N2) 
     {
     	int maximoa =0;
     	
@@ -24,7 +24,7 @@ public class Dorrea extends Pieza {
     	return maximoa;
     }
    
-    public int minimoaKalkulatu(int N1, int N2) 
+     public int minimoaKalkulatu(int N1, int N2) 
     {
     	int minimoa =0;
     	
@@ -37,7 +37,7 @@ public class Dorrea extends Pieza {
     		minimoa=N1;
     	}
     	return minimoa;
-    }
+    }*/
   
 
     @Override
@@ -55,7 +55,7 @@ public class Dorrea extends Pieza {
     		{
     			if (this.getZutabea()>zeinZutabera) 
     			{
-    				kont=this.getZutabea();
+    				kont=this.getZutabea()-1;
     				while(kont != zeinZutabera) 
     				{
     					if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada(), kont)) 
@@ -67,7 +67,7 @@ public class Dorrea extends Pieza {
     			}
     			else 
     			{
-    				kont=this.getZutabea();
+    				kont=this.getZutabea()+1;
     				while(kont != zeinZutabera) 
     				{
     					if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada(), kont)) 
@@ -82,7 +82,7 @@ public class Dorrea extends Pieza {
     		{
     			if (this.getErrenkada()>zeinErrenkadara) 
     			{
-    				kont=this.getErrenkada();
+    				kont=this.getErrenkada()-1;
     				while(kont != zeinErrenkadara) 
     				{
     					if(Taula.getTaula().laukiaBetetaDago( kont,this.getZutabea())) 
@@ -94,7 +94,7 @@ public class Dorrea extends Pieza {
     			}
     			else 
     			{
-    				kont=this.getErrenkada();
+    				kont=this.getErrenkada()+1;
     				while(kont != zeinErrenkadara) 
     				{
     					if(Taula.getTaula().laukiaBetetaDago(kont, this.getErrenkada())) 

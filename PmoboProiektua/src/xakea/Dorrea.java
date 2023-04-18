@@ -13,7 +13,7 @@ public class Dorrea extends Pieza
 	{
     	int kont =0;
     	boolean ahalDu = true;
-	
+		/*cddddddddddddddddddddd */
 		/*Para ver si a la casilla que quiere ir esta dentro de el tablero y si no ahalDu=false */
 		if(!Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
 		{

@@ -1,5 +1,7 @@
 package xakea;
 
+import org.junit.Test;
+
 public class Dorrea extends Pieza
 {
 	
@@ -13,11 +15,13 @@ public class Dorrea extends Pieza
 	{
     	int kont =0;
     	boolean ahalDu = true;
-		/*Para ver si a la casilla que quiere ir esta dentro de el tablero y si no ahalDu=false */
-		if(!Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+		/*Para ver si a la casilla que quiere ir esta dentro de el tablero y si no ahalDu=false *///Hay qe comprobar si son del mismo color para poder mover o no .
+		if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera)&& (Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa()))
 		{
 			ahalDu=false;
 		}
+
+		/*!!!!!Le falta comprobar si a donde quiere ir esta dentro del tablero !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 		/*Para ver si el movimiento que quiere hacer es el correspondiente a la torre(Horizzontal o Vertical) */
 		if((this.getErrenkada()!=zeinErrenkadara)&&(this.getZutabea()!=zeinZutabera))

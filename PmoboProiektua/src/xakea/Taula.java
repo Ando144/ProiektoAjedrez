@@ -76,3 +76,15 @@ public class Taula {
     	//...
     }
 }
+  A
+[BD][BP][AA][AA][AA][AA][AA][AA]
+[BP][AA][AA][AA][AA][AA][AA][AA]
+[  ][  ][  ][  ][  ][  ][  ][  ]
+[  ][  ][  ][  ][  ][  ][  ][  ]
+[  ][  ][  ][  ][  ][  ][  ][  ]
+[  ][  ][  ][  ][  ][  ][  ][  ]
+[AA][AA][AA][AA][AA][AA][AA][AA]
+[AA][AA][AA][AA][AA][AA][AA][AA]
+
+
+

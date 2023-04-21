@@ -15,20 +15,39 @@ public class Dorrea extends Pieza
 	{
     	int kont =0;
     	boolean ahalDu = true;
-		/*Para ver si a la casilla que quiere ir esta dentro de el tablero y si no ahalDu=false *///Hay qe comprobar si son del mismo color para poder mover o no .
+		/*Para ver si a la casilla que quiere ir esta dentro de el tablero y si no ahalDu=false */
 		if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera)&& (Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa()))
 		{
 			ahalDu=false;
 		}
 
-		/*!!!!!Le falta comprobar si a donde quiere ir esta dentro del tablero !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-
+		/*Comprueba si esta dentro del tablero a donde quiere  ir */
+		if (!Taula.getTaula().laukiaTaulanDago(zeinErrenkadara, zeinZutabera))
+		{
+			ahalDu=false;
+		}
 		/*Para ver si el movimiento que quiere hacer es el correspondiente a la torre(Horizzontal o Vertical) */
 		if((this.getErrenkada()!=zeinErrenkadara)&&(this.getZutabea()!=zeinZutabera))
 		{
 			ahalDu=false;
 		}
 		
+		if (super.zuriaDa())
+		{
+			/*La pieza es blanca y quiere moverse a un sitio con una pieza blanca */
+			if (Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+			{
+				ahalDu=false;
+			}
+		}
+		else
+		{	/*La pieza es negra y quiere moverse a un sitio con una pieza negra */
+			if (!Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+			{
+				ahalDu=false;
+			}
+		}
+
 		//por si no cumple alguna de las condiciones anteriores que ni entre
 		if(ahalDu==false)
 		{

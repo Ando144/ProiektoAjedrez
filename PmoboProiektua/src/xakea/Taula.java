@@ -5,16 +5,26 @@ public class Taula {
     private Laukia[][] laukiak;
     private static Taula nireTaula=null;;
 
-    private Taula() {
+    /* private Taula() {
         laukiak = new Laukia[tamaina][tamaina];
         
         //Taulako laukiak sortu
+         
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
             	laukiak[i][j] = new Laukia(i, j, null);
             }
+        }*/
+        public Taula(){
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    if ((i + j) % 2 == 0) {
+                        this.laukiak[i][j] = ' ';
+                    } else {
+                        this.laukiak[i][j] = '[ ]';
+                    }
+                }
         }
-        
         //Pieza zuriak sortu eta kokatu
         boolean zuria = true;
         this.laukiak[0][0].setPieza(new Dorrea(zuria,0,0));
@@ -73,8 +83,40 @@ public class Taula {
     }
     
     public void taulaInprimatu() {
-    	//...
+    	for (int j = 0; j < 8; j++){
+            System.out.print((char) ('a' + j)+" ");    
+        }
+        System.out.println();
+        for(int i = 0 ; i < 8; i++){
+            System.out.print(8 - i + " ");
+            for (int j = 0; j < 8; j++){
+                System.out.print(this.laukiak[i][j] + " ");
+            }
+            System.out.println(8-i);
+        }
+        System.out.print("  ");
+        for (int j = 0; j<8; j++){
+            System.out.print((char) ('a' + j) + " ");
+        }
+        System.out.println();
     }
+    public void taulatikKendu(Pieza pieza){
+		int xZaharra = pieza.getErrenkada();
+		int yZaharra = pieza.getZutabea();
+		
+		this.laukiak[xZaharra][yZaharra] = null;
+	}
+
+	public void piezaJarri(Pieza pieza, int x, int y){
+		if (taulanDago(x, y))
+			this.laukiak[x][y] = pieza;/*esto es para poner la pieza en esa localicacion pero lo tengo que tocar  */
+	}
+    /*Hemen begiratuko dugu ea taula barruan dagoen a la ez */
+    public boolean taulanDago(int x, int y){
+		if (x < 8 && x >= 0 &&
+				y < 8 && y >= 0){
+                    return true;}
+		return false;
 }
 /*  A
 [BD][BP][AA][AA][AA][AA][AA][AA]

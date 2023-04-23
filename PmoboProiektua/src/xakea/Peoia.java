@@ -1,13 +1,16 @@
 package xakea;
 
-public class Peoia extends Pieza {
+public class Peoia extends Pieza 
+{
 	
-    public Peoia(boolean kolorea, int errenkada, int zutabea) {
+    public Peoia(boolean kolorea, int errenkada, int zutabea) 
+	{
         super(kolorea, errenkada, zutabea);
     }
 
     @Override
-    public boolean mugituDaiteke(int zeinErrenkadara, int zeinZutabera) {
+    public boolean mugituDaiteke(int zeinErrenkadara, int zeinZutabera) 
+	{
     	boolean ahalDu = true;
 
         /*Comprobador de si la pieza es de su mismo color */
@@ -33,15 +36,107 @@ public class Peoia extends Pieza {
 			ahalDu=false;
 		}
 
-    	return ahalDu;
-
-        if(ahalDu==false){
-        
-            if(Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+        if(ahalDu==false)
+		{
+			 /*Si es blanca */
+            if(Taula.getTaula().getLaukikoPieza(this.getErrenkada(), this.getZutabea()).zuriaDa())
             {
-                d
-            }
+				/*en el caso de que sea la primera linea de las blancas */
+				if(this.getErrenkada()==1)
+				{
+					/*Comprueba si cuando esta haciendo el primer movimiento puede desplazarse dos para adelante */
+					if(zeinErrenkadara==this.getErrenkada()+2 && zeinZutabera==this.getZutabea())
+					{
+						if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+						{
+							ahalDu=false;
+						}
+					}
+				}
 
+				/*Comprueba si puede moverse uno hacia adelante*/
+				if (zeinErrenkadara==this.getErrenkada()+1 && zeinZutabera==this.getZutabea())
+				{
+					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+					{
+						ahalDu=false;
+					}
+				}
+
+				/*Comprueba si puede moverse a la derecha para comer, en el caso de que sea una ficha de su equipo no puede  */
+				if (zeinErrenkadara==this.getErrenkada()+1 && zeinZutabera==this.getZutabea()+1)
+				{
+					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+					{
+						if(Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+						{
+							ahalDu=false;
+						}
+					}
+				}
+
+				/*Comprueba si puede moverse a la izquierda para comer, en el caso de que sea una ficha de su equipo no puede  */
+				if (zeinErrenkadara==this.getErrenkada()+1 && zeinZutabera==this.getZutabea()-1)
+				{
+					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+					{
+						if(Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+						{
+							ahalDu=false;
+						}
+					}
+				}
+
+			}else{
+				
+				/*en el caso de que sea la primera linea de las negras */
+				if(this.getErrenkada()==7)
+				{
+					/*Comprueba si cuando esta haciendo el primer movimiento puede desplazarse dos para adelante */
+					if(zeinErrenkadara==this.getErrenkada()-2 && zeinZutabera==this.getZutabea())
+					{
+						if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+						{
+							ahalDu=false;
+						}
+					}
+				}
+
+				/*Comprueba si puede moverse uno hacia adelante*/
+				if (zeinErrenkadara==this.getErrenkada()-1 && zeinZutabera==this.getZutabea())
+				{
+					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+					{
+						ahalDu=false;
+					}
+				}
+				/*Comprueba si puede moverse a la derecha para comer, en el caso de que sea una ficha de su equipo no puede  */
+				if (zeinErrenkadara==this.getErrenkada()-1 && zeinZutabera==this.getZutabea()+1)
+				{
+					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+					{
+						if(!Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+						{
+							ahalDu=false;
+						}
+					}
+				}
+				
+				/*Comprueba si puede moverse a la izquierda para comer, en el caso de que sea una ficha de su equipo no puede  */
+				if (zeinErrenkadara==this.getErrenkada()-1 && zeinZutabera==this.getZutabea()-1)
+				{
+					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+					{
+						if(!Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+						{
+							ahalDu=false;
+							
+						}
+					}
+				}
+			}
         }
+		return ahalDu;
     }
 }
+

@@ -36,7 +36,7 @@ public class Peoia extends Pieza
 			ahalDu=false;
 		}
 
-        if(ahalDu==false)
+        if(ahalDu==true)
 		{
 			 /*Si es blanca */
             if(Taula.getTaula().getLaukikoPieza(this.getErrenkada(), this.getZutabea()).zuriaDa())

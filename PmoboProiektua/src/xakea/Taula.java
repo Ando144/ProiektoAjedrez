@@ -27,7 +27,7 @@ public class Taula {
         }
         //Pieza zuriak sortu eta kokatu
         boolean zuria = true;
-        this.laukiak[0][0].setPieza(new Dorrea(zuria,0,0));
+        this.laukiak[0][0].setPieza(new Dorrea(zuria,0,0));z
         this.laukiak[0][7].setPieza(new Dorrea(zuria,0,7));
         this.laukiak[0][1].setPieza(new Zaldia(zuria,0,1));
         this.laukiak[0][6].setPieza(new Zaldia(zuria,0,6));

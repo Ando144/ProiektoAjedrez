@@ -47,7 +47,7 @@ public class Peoia extends Pieza
 					/*Comprueba si cuando esta haciendo el primer movimiento puede desplazarse dos para adelante */
 					if(zeinErrenkadara==this.getErrenkada()+2 && zeinZutabera==this.getZutabea())
 					{
-						if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+						if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera) && Taula.getTaula().laukiaBetetaDago(zeinErrenkadara-1, zeinZutabera-1))
 						{
 							ahalDu=false;
 						}
@@ -86,7 +86,8 @@ public class Peoia extends Pieza
 						}
 					}
 				}
-
+				
+			/*Si es Negra */
 			}else{
 				
 				/*en el caso de que sea la primera linea de las negras */
@@ -95,7 +96,7 @@ public class Peoia extends Pieza
 					/*Comprueba si cuando esta haciendo el primer movimiento puede desplazarse dos para adelante */
 					if(zeinErrenkadara==this.getErrenkada()-2 && zeinZutabera==this.getZutabea())
 					{
-						if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
+						if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera) && Taula.getTaula().laukiaBetetaDago(zeinErrenkadara+1, zeinZutabera+1))
 						{
 							ahalDu=false;
 						}

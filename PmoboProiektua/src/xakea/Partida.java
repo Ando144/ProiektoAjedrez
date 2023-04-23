@@ -5,14 +5,16 @@ public class Partida {
 	private Jokalaria jokalariZuria;
 	private Jokalaria jokalariBeltza;
 	private Jokalaria oraingoJokalaria;
-	
+
 	public void partidaBatJolastu() {
 		taula = Taula.getTaula();
-		jokalariZuria = new Jokalaria("Sobron69", "Zuria");
-		jokalariBeltza = new Jokalaria("ErikPadronso", "Beltza");
+		jokalariZuria = new Jokalaria("eskatu izena", "Zuria");
+		jokalariBeltza = new Jokalaria("eskatu izena", "Beltza");
 		oraingoJokalaria = jokalariZuria;
 		while(!partidaBukatuDa()) {
+			Taula.getTaula().taulaInprimatu();
 			mugimenduBatEgin(oraingoJokalaria);
+			Taula.getTaula().taulaInprimatu();
 			jokalarizAldatu();
 		}
 		emaitzaInprimatu();

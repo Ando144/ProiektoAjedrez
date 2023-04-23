@@ -114,9 +114,10 @@ public class Taula {
     /*Hemen begiratuko dugu ea taula barruan dagoen a la ez */
     public boolean taulanDago(int x, int y){
 		if (x < 8 && x >= 0 &&
-				y < 8 && y >= 0){
+			y < 8 && y >= 0){
                     return true;}
 		return false;
+     }
 }
 /*  A
 [BD][BP][AA][AA][AA][AA][AA][AA]

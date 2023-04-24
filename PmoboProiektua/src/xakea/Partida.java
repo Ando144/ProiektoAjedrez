@@ -54,9 +54,7 @@ public class Partida {
 				System.out.println("Ezin duzu mugimendu hori egin. Beste bat saiatu.");
 			}
 		}
-		Taula.getTaula().setLaukianPieza(errNora-1, zutNora-1, mugitzekoPieza);
-		mugitzekoPieza.setErrenkadaEtaZutabea(errNora-1, zutNora-1);
-		Taula.getTaula().setLaukianPieza(errNon-1, zutNon-1, null);
+		Taula.getTaula().piezaJarri(mugitzekoPieza, errNora-1, zutNora-1);
 	}
 
 	/* hello */

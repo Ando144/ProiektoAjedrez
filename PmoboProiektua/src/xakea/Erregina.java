@@ -2,8 +2,8 @@ package xakea;
 
 public class Erregina extends Pieza {
 	
-    public Erregina(boolean kolorea, int errenkada, int zutabea) {
-        super(kolorea, errenkada, zutabea);
+    public Erregina(boolean kolorea, int errenkada, int zutabea, String izena) {
+        super(kolorea, errenkada, zutabea, izena);
     }
 
     @Override

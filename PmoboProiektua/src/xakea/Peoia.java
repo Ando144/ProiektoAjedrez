@@ -3,9 +3,9 @@ package xakea;
 public class Peoia extends Pieza 
 {
 	
-    public Peoia(boolean kolorea, int errenkada, int zutabea) 
+    public Peoia(boolean kolorea, int errenkada, int zutabea, String izena) 
 	{
-        super(kolorea, errenkada, zutabea);
+        super(kolorea, errenkada, zutabea, izena);
     }
 
     @Override

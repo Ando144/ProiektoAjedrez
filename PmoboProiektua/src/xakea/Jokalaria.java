@@ -6,9 +6,10 @@ public class Jokalaria {
 	private String izena;
 	private boolean zuria;
 	private ArrayList<Pieza> piezak;
+	//private Teklatua tekl;
 	
 	public Jokalaria(String pIzena, String pKolorea) {
-		izena = pIzena;
+		izena = Teklatua.getTeklatua()
 		if(pKolorea=="Zuria") {
 			zuria=true;
 			for(int i=0; i<=1; i++) {

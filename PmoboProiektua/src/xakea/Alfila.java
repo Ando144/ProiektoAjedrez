@@ -2,8 +2,8 @@ package xakea;
 
 public class Alfila extends Pieza {
 	
-    public Alfila(boolean kolorea, int errenkada, int zutabea) {
-        super(kolorea, errenkada, zutabea);
+    public Alfila(boolean kolorea, int errenkada, int zutabea, String izena) {
+        super(kolorea, errenkada, zutabea, izena);
     }
 
     @Override

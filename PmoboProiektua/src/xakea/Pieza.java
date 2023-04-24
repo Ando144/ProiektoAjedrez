@@ -4,11 +4,13 @@ public abstract class Pieza {
     private boolean zuria;
     private int errenkada;
     private int zutabea;
+    private String izena;
 
-    protected Pieza(boolean kolorea, int errenkada, int zutabea) {
-        this.zuria = kolorea;
-        this.errenkada = errenkada;
-        this.zutabea = zutabea;
+    protected Pieza(boolean pZuria, int pErrenkada, int pZutabea, String pIzena) {
+        this.zuria = pZuria;
+        this.errenkada = pErrenkada;
+        this.zutabea = pZutabea;
+        this.izena = pIzena;
     }
 
     public boolean zuriaDa() {
@@ -21,6 +23,10 @@ public abstract class Pieza {
 
     public int getZutabea() {
         return zutabea;
+    }
+
+    public String getIzena(){
+        return izena;
     }
 
     public void setErrenkadaEtaZutabea(int x, int y) {

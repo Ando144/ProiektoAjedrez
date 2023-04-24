@@ -5,6 +5,10 @@ import java.util.*;
 public class Teklatua {
 	private static Teklatua nireTeklatua;
 	private Scanner sc;
+
+	private Teklatua(){
+		sc = new Scanner(System.in);
+	}
 	
 	public static Teklatua getTeklatua() {
 		return nireTeklatua;

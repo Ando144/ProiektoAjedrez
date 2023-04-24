@@ -2,8 +2,8 @@ package xakea;
 
 public class Zaldia extends Pieza {
 	
-    public Zaldia(boolean kolorea, int errenkada, int zutabea) {
-        super(kolorea, errenkada, zutabea);
+    public Zaldia(boolean kolorea, int errenkada, int zutabea, String izena) {
+        super(kolorea, errenkada, zutabea, izena);
     }
 
     @Override

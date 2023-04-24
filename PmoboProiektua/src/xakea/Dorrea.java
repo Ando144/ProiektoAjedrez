@@ -5,9 +5,9 @@ import org.junit.Test;
 public class Dorrea extends Pieza
 {
 	
-    public Dorrea(boolean kolorea, int errenkada, int zutabea) 
+    public Dorrea(boolean kolorea, int errenkada, int zutabea, String izena) 
 	{
-        super(kolorea, errenkada, zutabea);
+        super(kolorea, errenkada, zutabea, izena);
     }
 
     @Override

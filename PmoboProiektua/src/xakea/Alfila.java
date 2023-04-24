@@ -23,31 +23,35 @@ public class Alfila extends Pieza {
             ahalDu=false;
         }
         if(ahalDu==true){
+            //derecha
             if(this.getZutabea()<zeinZutabera){
                 //arriba derecha
                 if(this.getErrenkada()<zeinErrenkadara){
+                    //Va usando el contador a vase de sumarlo o restarlo a la posicion inicial, depende de hacia
+                    //donde se mueva, para comprobar si las casillas estan ocupadas
                     while(this.getZutabea()+kont!=zeinZutabera && ahalDu==true){
-                        if(Taula.getTaula().laukiaBetetaDago(zeinZutabera+kont,zeinErrenkadara+kont)){
+                        if(Taula.getTaula().laukiaBetetaDago(this.getZutabea()+kont,this.getErrenkada()+kont)){
                             ahalDu=false;
                         }
                         kont++;
                     }
                 }
-                //arriba izquierda
+                //abajo derecha
                 else if(this.getErrenkada()>zeinErrenkadara){
                     while(this.getZutabea()+kont!=zeinZutabera && ahalDu==true){
-                        if(Taula.getTaula().laukiaBetetaDago(zeinZutabera+kont, zeinErrenkadara-kont)){
+                        if(Taula.getTaula().laukiaBetetaDago(this.getZutabea()+kont, this.getErrenkada()-kont)){
                             ahalDu=false;
                         }
                         kont++;
                     }
                 }
             }
-            else{
-                //abajo derecha
+            //izquierda
+            else if(this.getZutabea()>zeinZutabera){
+                //arriba izquierda
                 if(this.getErrenkada()<zeinErrenkadara){
                     while(this.getZutabea()-kont!=zeinZutabera && ahalDu==true){
-                        if(Taula.getTaula().laukiaBetetaDago(zeinZutabera-kont, zeinErrenkadara+kont)){
+                        if(Taula.getTaula().laukiaBetetaDago(this.getZutabea()-kont, this.getErrenkada()+kont)){
                             ahalDu=false;
                         }
                         kont++;
@@ -56,12 +60,15 @@ public class Alfila extends Pieza {
                 //abajo izquierda
                 else if(this.getErrenkada()>zeinErrenkadara){
                     while(this.getZutabea()-kont!=zeinZutabera && ahalDu==true){
-                        if(Taula.getTaula().laukiaBetetaDago(zeinZutabera-kont, zeinErrenkadara-kont)){
+                        if(Taula.getTaula().laukiaBetetaDago(this.getZutabea()-kont, this.getErrenkada()-kont)){
                             ahalDu=false;
                         }
                         kont++;
                     }
                 }
+            }
+            else{
+                ahalDu=false;
             }
         }
         return ahalDu;

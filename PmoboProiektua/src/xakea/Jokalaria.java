@@ -9,7 +9,7 @@ public class Jokalaria {
 	//private Teklatua tekl;
 	
 	public Jokalaria(String pIzena, String pKolorea) {
-		izena = Teklatua.getTeklatua()
+		//izena = Teklatua.getTeklatua();
 		if(pKolorea=="Zuria") {
 			zuria=true;
 			for(int i=0; i<=1; i++) {
@@ -37,6 +37,29 @@ public class Jokalaria {
 	
 	public boolean piezarikGabe() {
 		return piezak.size()==0;
+	}
+
+	private Iterator<Pieza> getIteradorea(){
+		return this.piezak.iterator();
+	}
+
+	public Erregea getErregea(){
+		Iterator<Pieza> itr = this.getIteradorea();
+		Pieza hau = null;
+		while(itr.hasNext() && !(hau instanceof Erregea)){
+			hau = itr.next();
+		}
+		return hau;
+	}
+
+	public boolean erregeaMehatxatzenAriDa(Erregea pErregea){
+		Iterator<Pieza> itr = this.getIteradorea();
+		while(itr.hasNext()){
+			if(itr.next().mugituDaiteke(pErregea.getErrenkada(), pErregea.getZutabea())){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

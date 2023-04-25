@@ -25,9 +25,21 @@ public class Partida {
 	}
 	
 	public boolean xakeMate(Jokalaria pJokalaria) {
-		boolean emaitza = false;
-		//...
-		return emaitza;
+		return this.xakeanDago(pJokalaria) && !pJokalaria.getErregea().mugimenduLegalakDitu();
+	}
+
+	public boolean xakeanDago(Jokalaria pJokalaria){
+		Jokalaria aurkakoa;
+		if(pJokalaria.zuriaDa()){
+			aurkakoa = jokalariBeltza;
+		}else{
+			aurkakoa = jokalariZuria;
+		}
+		if(aurkakoa.erregeaMehatxatzenAriDa(pJokalaria.getErregea())){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	public boolean berdinketa() {

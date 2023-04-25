@@ -9,11 +9,12 @@ public class Erregina extends Pieza {
     @Override
     public boolean mugituDaiteke(int zeinErrenkadara, int zeinZutabera) {
     	boolean ahalDu = true;
-        int kont=0;
-    	//...
+        int kont=1;
+    	//Comprobar que no quiera ir fuera de la tabla
         if(!Taula.getTaula().laukiaTaulanDago(zeinErrenkadara, zeinZutabera)){
             ahalDu=false;
         }
+        //Comprobar que no haya una pieza de su mismo color donde quiere moverse
         if(this.zuriaDa()==Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa()){
             ahalDu=false;
         }
@@ -57,9 +58,48 @@ public class Erregina extends Pieza {
                     }
                 }
             }
-            //Si se mueve en linea recta
+            //Si se mueve en linea recta, lo mismo que en dorrea
             else if (this.getErrenkada()==zeinErrenkadara ||this.getZutabea()==zeinZutabera){
-
+                if(this.getErrenkada()==zeinErrenkadara){
+                    if(this.getZutabea()<zeinZutabera){
+                        kont=this.getZutabea()+1;
+                        while(ahalDu==true && kont!=zeinZutabera){
+                            if(Taula.getTaula().laukiaBetetaDago(kont, zeinErrenkadara)){
+                                ahalDu=false;
+                            }
+                            kont++;
+                        }
+                    }
+                    else if(this.getZutabea()>zeinZutabera){
+                        kont=this.getZutabea()-1;
+                        while(ahalDu==true && kont!=zeinZutabera){
+                            if(Taula.getTaula().laukiaBetetaDago(kont, zeinErrenkadara)){
+                                ahalDu=false;
+                            }
+                            kont--;
+                        }
+                    }
+                }
+                else if(this.getZutabea()==zeinZutabera){
+                    if(this.getErrenkada()<zeinErrenkadara){
+                        kont=this.getErrenkada()+1;
+                        while(ahalDu==true && kont!=zeinErrenkadara){
+                            if(Taula.getTaula().laukiaBetetaDago(zeinZutabera,kont)){
+                                ahalDu=false;
+                            }
+                            kont++;
+                        }
+                    }
+                    else if(this.getErrenkada()>zeinErrenkadara){
+                        kont=this.getErrenkada()-1;
+                        while(ahalDu==true && kont!=zeinErrenkadara){
+                            if(Taula.getTaula().laukiaBetetaDago(zeinZutabera, kont)){
+                                ahalDu=false;
+                            }
+                            kont--;
+                        }
+                    }
+                }
             }
             else{
                 ahalDu=false;

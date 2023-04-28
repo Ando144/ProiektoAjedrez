@@ -1,7 +1,6 @@
 package xakea;
 
 public class Partida {
-	private Taula taula;
 	private Jokalaria jokalariZuria;
 	private Jokalaria jokalariBeltza;
 	private Jokalaria oraingoJokalaria;
@@ -12,14 +11,13 @@ public class Partida {
 		jokalariBeltza = new Jokalaria("eskatu izena", "Beltza");
 		oraingoJokalaria = jokalariZuria;
 		while(!partidaBukatuDa()) {
-			Taula.getTaula().taulaInprimatu();
+			Taula.getTaula().taulaInprimatu2();
 			mugimenduBatEgin(oraingoJokalaria);
-			Taula.getTaula().taulaInprimatu();
+			Taula.getTaula().taulaInprimatu2();
 			jokalarizAldatu();
 		}
 		emaitzaInprimatu();
 	}
-	
 	public boolean partidaBukatuDa() {
 		return(this.xakeMate(jokalariZuria)||this.xakeMate(jokalariBeltza)||this.berdinketa());
 	}
@@ -50,7 +48,7 @@ public class Partida {
 	
 	public void mugimenduBatEgin(Jokalaria jokalaria) {
 		boolean mugZuzena = false, piezaZuzena = false;
-		int errNon, zutNon, errNora, zutNora;
+		int errNon ; int zutNon; int errNora; int zutNora;
 		Pieza mugitzekoPieza = null;
 		while(!piezaZuzena) {
 			//aukeratu mugitu nahi duzun piezaren errenkada

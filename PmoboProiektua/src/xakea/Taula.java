@@ -80,25 +80,6 @@ public class Taula {
     public boolean laukiaTaulanDago(int err, int zut) {
         return err >= 0 && err < tamaina && zut >= 0 && zut < tamaina;
     }
-    
-    public void taulaInprimatu() {
-    	for (int j = 0; j < 8; j++){
-            System.out.print((char) ('a' + j)+" ");    
-        }
-        System.out.println();
-        for(int i = 0 ; i < 8; i++){
-            System.out.print(8 - i + " ");
-            for (int j = 0; j < 8; j++){
-                System.out.print(this.laukiak[i][j] + " ");
-            }
-            System.out.println(8-i);
-        }
-        System.out.print("  ");
-        for (int j = 0; j<8; j++){
-            System.out.print((char) ('a' + j) + " ");
-        }
-        System.out.println();
-    }
 
     public void taulaInprimatu2(){//otra forma posible de printear que se me ocurre
         String ikurra;
@@ -114,14 +95,14 @@ public class Taula {
             }
         }
     }
-
+    /*metodo hau pieza bat taulatik kentzeko da */
     public void taulatikKendu(Pieza pieza){
 		int xZaharra = pieza.getErrenkada();
 		int yZaharra = pieza.getZutabea();
 		
 		this.laukiak[xZaharra][yZaharra] = null;
 	}
-
+    /*metodo hau pieza bat tableroan jartzeko da */
 	public void piezaJarri(Pieza pieza, int err, int zut){
 		if (taulanDago(err, zut)){
 			this.laukiak[err][zut].setPieza(pieza);
@@ -137,13 +118,3 @@ public class Taula {
 		return false;
      }
 }
-/*  A
-[BD][BP][AA][AA][AA][AA][AA][AA]
-[BP][AA][AA][AA][AA][AA][AA][AA]
-[  ][  ][  ][  ][  ][  ][  ][  ]
-[  ][  ][  ][  ][  ][  ][  ][  ]
-[  ][  ][  ][  ][  ][  ][  ][  ]
-[  ][  ][  ][  ][  ][  ][  ][  ]
-[AA][AA][AA][AA][AA][AA][AA][AA]
-[AA][AA][AA][AA][AA][AA][AA][AA]
-*/

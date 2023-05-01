@@ -23,7 +23,30 @@ public class Partida {
 	}
 	
 	public boolean xakeMate(Jokalaria pJokalaria) {
-		return this.xakeanDago(pJokalaria) && !pJokalaria.getErregea().mugimenduLegalakDitu();
+		if(this.xakeanDago(pJokalaria)){
+			int erregeaErr = pJokalaria.getErregea().getErrenkada();
+			int erregeaZut = pJokalaria.getErregea().getZutabea();
+			for(int i = erregeaErr-1; i<=erregeaErr+1; i++){
+				for(int j = erregeaZut-1; j<=erregeaZut+1; j++){
+					if(Taula.getTaula().laukiaTaulanDago(i, j)){
+						Erregea erregeaKopia = new Erregea(pJokalaria.zuriaDa(), i, j, "  ");
+						Jokalaria aurkakoa;
+						if(pJokalaria.zuriaDa()){
+							aurkakoa = jokalariBeltza;
+						}else{
+							aurkakoa = jokalariZuria;
+						}
+						if(aurkakoa.erregeaMehatxatzenAriDa(erregeaKopia)==false){
+							return false;
+						}
+						erregeaKopia = null;
+					}
+				}
+			}
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	public boolean xakeanDago(Jokalaria pJokalaria){
@@ -41,9 +64,18 @@ public class Partida {
 	}
 	
 	public boolean berdinketa() {
-		boolean emaitza = false;
-		//...
-		return emaitza;
+		boolean oraingoa = false, aurrekoa = false;
+		String erantzuna;
+		System.out.println("Berdinketa egotea bozkatzen duzu? Baiezko kasuan, 'Bai' idatzi. Bestela, beste edozer idatzi.");
+		System.out.println("Bi jokalariek baietz bozkatzen baduzue jarraian, berdinketa adostuko duzue.");
+		erantzuna = Teklatua.getTeklatua().irakurriString();
+		aurrekoa = oraingoa;
+		if(erantzuna=="Bai"||erantzuna=="bai"){
+			oraingoa = true;
+		}else{
+			oraingoa = false;
+		}
+		return oraingoa && aurrekoa;
 	}
 	
 	public void mugimenduBatEgin(Jokalaria jokalaria) {

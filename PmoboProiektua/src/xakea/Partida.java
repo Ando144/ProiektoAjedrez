@@ -133,6 +133,15 @@ public class Partida {
 			}
 			mugZuzena = mugimenduaZuzenaDa(mugitzekoPieza, errNora-1, zutNora-1);
 		}
+		if(Taula.getTaula().laukiaBetetaDago(errNora-1, zutNora-1)){
+			Jokalaria aurkakoa;
+			if(jokalaria.zuriaDa()){
+				aurkakoa = jokalariBeltza;
+			}else{
+				aurkakoa = jokalariZuria;
+			}
+			aurkakoa.piezaGaldu(Taula.getTaula().getLaukikoPieza(errNora-1, zutNora-1));
+		}
 		Taula.getTaula().piezaJarri(mugitzekoPieza, errNora-1, zutNora-1);
 	}
 

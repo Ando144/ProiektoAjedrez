@@ -49,7 +49,7 @@ public class Jokalaria {
 		while(itr.hasNext() && !(hau instanceof Erregea)){
 			hau = itr.next();
 		}
-		return hau;
+		return ((Erregea)hau);
 	}
 
 	public boolean erregeaMehatxatzenAriDa(Erregea pErregea){
@@ -60,6 +60,10 @@ public class Jokalaria {
 			}
 		}
 		return false;
+	}
+
+	public void piezaGaldu(Pieza jandakoa){
+		piezak.remove(jandakoa);
 	}
 	
 }

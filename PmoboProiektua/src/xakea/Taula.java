@@ -69,9 +69,9 @@ public class Taula {
         laukiak[err][zut].setPieza(pPieza);
     }
     
-    public boolean laukiaBetetaDago(int xDim, int yDim) {
-    	if (laukiaTaulanDago(xDim, yDim)) {
-    		if (this.laukiak[xDim][yDim]!=null) {
+    public boolean laukiaBetetaDago(int err, int zut) {
+    	if (laukiaTaulanDago(err, zut)) {
+    		if (this.laukiak[err][zut].getPieza()!=null) {
     			return true;
     		}
     	}return false;
@@ -95,13 +95,7 @@ public class Taula {
             }
         }
     }
-    /*metodo hau pieza bat taulatik kentzeko da */
-    public void taulatikKendu(Pieza pieza){
-		int xZaharra = pieza.getErrenkada();
-		int yZaharra = pieza.getZutabea();
-		
-		this.laukiak[xZaharra][yZaharra] = null;
-	}
+
     /*metodo hau pieza bat tableroan jartzeko da */
 	public void piezaJarri(Pieza pieza, int err, int zut){
 		if (taulanDago(err, zut)){

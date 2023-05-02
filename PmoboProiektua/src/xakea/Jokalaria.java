@@ -10,6 +10,8 @@ public class Jokalaria {
 	
 	public Jokalaria(String pIzena, String pKolorea) {
 		//izena = Teklatua.getTeklatua();
+		piezak = new ArrayList<Pieza>();
+
 		if(pKolorea=="Zuria") {
 			zuria=true;
 			for(int i=0; i<=1; i++) {

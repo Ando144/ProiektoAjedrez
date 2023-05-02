@@ -80,7 +80,7 @@ public class Partida {
 	
 	public void mugimenduBatEgin(Jokalaria jokalaria) {
 		boolean mugZuzena = false, piezaZuzena = false, eginda;
-		int errNon; int zutNon; int errNora; int zutNora;
+		int errNon=0; int zutNon=0; int errNora=0; int zutNora=0;
 		Pieza mugitzekoPieza = null;
 		while(!piezaZuzena) {
 			eginda = false;

@@ -8,21 +8,13 @@ public class Taula {
     private static Taula nireTaula=null;;
 
     private Taula() {
+        this.laukiak = new Laukia[tamaina][tamaina];
+
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
             	laukiak[i][j] = new Laukia(i, j, null);
             }
         }
-                            /*public Taula(){
-                                for (int i = 0; i < 8; i++) {
-                                    for (int j = 0; j < 8; j++) {
-                                        if ((i + j) % 2 == 0) {
-                                            this.laukiak[i][j] = ' ';
-                                        } else {
-                                            this.laukiak[i][j] = '[ ]';
-                                        }
-                                    }
-                            }*/
 
         //Pieza zuriak sortu eta kokatu
         boolean zuria = true;

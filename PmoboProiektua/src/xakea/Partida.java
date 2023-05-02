@@ -16,7 +16,13 @@ public class Partida {
 		System.out.println("Idatzi jokalari beltzaren izena.");
 		jokalariBeltza = new Jokalaria(Teklatua.getTeklatua().irakurriString(), "Beltza");
 		oraingoJokalaria = jokalariZuria;
+		int kont =0;
+		while(kont<10){
 		mugimenduBatEgin(oraingoJokalaria);
+		Taula.getTaula().taulaInprimatu2();
+		jokalarizAldatu();
+		kont++;
+		}
 		/*while(!partidaBukatuDa()) {
 			System.out.println(jokalariZuria.zuriaDa());
 			Taula.getTaula().taulaInprimatu2();

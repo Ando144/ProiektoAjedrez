@@ -75,17 +75,21 @@ public class Taula {
 
     public void taulaInprimatu2(){//otra forma posible de printear que se me ocurre
         String ikurra;
-        for(int i = 8; i>0; i--){
-            System.out.println(i+" ");
-            for(int j=0; j<8; j++){
-                if(getTaula().getLaukikoPieza(i-1, j-1)!=null){
-                    ikurra = getTaula().getLaukikoPieza(i-1, j-1).getIzena();
+        for(int i = 7; i>=0; i--){
+            System.out.println("");
+            System.out.print(i+1+" ");
+            for(int j=0; j<=7; j++){
+                if(getTaula().getLaukikoPieza(i, j)!=null){
+                    ikurra = getTaula().getLaukikoPieza(i, j).getIzena();
                 }else{
                     ikurra = "  ";
                 }
                 System.out.print("["+ikurra+"]");
             }
         }
+        System.out.println("");
+        System.out.print("   A   B   C   D   E   F   G   H");
+        System.out.println("");
     }
 
     /*metodo hau pieza bat tableroan jartzeko da */

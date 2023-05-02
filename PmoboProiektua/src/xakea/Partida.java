@@ -10,11 +10,15 @@ public class Partida {
 	}
 
 	public void partidaBatJolastu() {
-		Taula.getTaula();
+		Taula.getTaula().taulaInprimatu2();
+		System.out.println("Idatzi jokalari zuriaren izena.");
 		jokalariZuria = new Jokalaria(Teklatua.getTeklatua().irakurriString(), "Zuria");
+		System.out.println("Idatzi jokalari beltzaren izena.");
 		jokalariBeltza = new Jokalaria(Teklatua.getTeklatua().irakurriString(), "Beltza");
+		System.out.println(jokalariZuria.zuriaDa());
 		oraingoJokalaria = jokalariZuria;
 		while(!partidaBukatuDa()) {
+			System.out.println(jokalariZuria.zuriaDa());
 			Taula.getTaula().taulaInprimatu2();
 			mugimenduBatEgin(oraingoJokalaria);
 			Taula.getTaula().taulaInprimatu2();

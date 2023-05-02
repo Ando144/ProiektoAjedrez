@@ -18,9 +18,9 @@ public class Partida {
 		oraingoJokalaria = jokalariZuria;
 		int kont =0;
 		while(kont<10){
-		mugimenduBatEgin(oraingoJokalaria);
-		Taula.getTaula().taulaInprimatu2();
-		jokalarizAldatu();
+			mugimenduBatEgin(oraingoJokalaria);
+			Taula.getTaula().taulaInprimatu2();
+			jokalarizAldatu();
 		kont++;
 		}
 		/*while(!partidaBukatuDa()) {
@@ -163,7 +163,14 @@ public class Partida {
 	//Metodo bat frogatzeko ea egin nahi duzun mugimendua onargarria den
 	private boolean mugimenduaZuzenaDa(Pieza mugitzekoPieza, int errNora, int zutNora) {
 		if(mugitzekoPieza.mugituDaiteke(errNora, zutNora)){
-			return true;
+			System.out.println(errNora+"  "+zutNora);
+			if(!Taula.getTaula().laukiaBetetaDago(errNora, zutNora)){
+				return true;
+			}else if(Taula.getTaula().getLaukikoPieza(errNora, zutNora).zuriaDa()!=mugitzekoPieza.zuriaDa()){
+				return true;
+			}else{
+				System.out.println("Lauki horretan badaukazu zure pieza bat. Beste mugimendu bat egiten saiatu.");
+			}
 		}else{
 			System.out.println("Ezin duzu mugimendu hori egin pieza horrekin. Beste mugimendu bat egiten saiatu.");
 		}

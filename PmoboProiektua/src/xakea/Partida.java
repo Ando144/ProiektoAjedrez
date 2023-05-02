@@ -17,13 +17,13 @@ public class Partida {
 		jokalariBeltza = new Jokalaria(Teklatua.getTeklatua().irakurriString(), "Beltza");
 		System.out.println(jokalariZuria.zuriaDa());
 		oraingoJokalaria = jokalariZuria;
-		//while(!partidaBukatuDa()) {
+		while(!partidaBukatuDa()) {
 			System.out.println(jokalariZuria.zuriaDa());
 			Taula.getTaula().taulaInprimatu2();
 			mugimenduBatEgin(oraingoJokalaria);
 			Taula.getTaula().taulaInprimatu2();
 			jokalarizAldatu();
-		//}
+		}
 		emaitzaInprimatu();
 	}
 	public boolean partidaBukatuDa() {

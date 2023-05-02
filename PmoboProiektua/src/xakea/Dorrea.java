@@ -92,7 +92,7 @@ public class Dorrea extends Pieza
 			{	
 				/*Lo mismo que el segundo if de arriba, para ver si el movimiento es hacia arriba o hacia abajo */
 				
-				
+				kont=0;
 				//Vertical Abajo
 				if (this.getErrenkada()>zeinErrenkadara) 
 				{

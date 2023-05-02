@@ -11,6 +11,9 @@ public class Teklatua {
 	}
 	
 	public static Teklatua getTeklatua() {
+		if(nireTeklatua==null){
+			nireTeklatua= new Teklatua();
+		}
 		return nireTeklatua;
 	}
 	

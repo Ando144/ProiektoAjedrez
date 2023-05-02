@@ -5,7 +5,7 @@ import javax.swing.plaf.basic.BasicScrollPaneUI.VSBChangeListener;
 public class Taula {
     private static final int tamaina = 8;
     private Laukia[][] laukiak;
-    private static Taula nireTaula=null;;
+    private static Taula nireTaula=null;
 
     private Taula() {
         this.laukiak = new Laukia[tamaina][tamaina];

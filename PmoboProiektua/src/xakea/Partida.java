@@ -5,10 +5,14 @@ public class Partida {
 	private Jokalaria jokalariBeltza;
 	private Jokalaria oraingoJokalaria;
 
+	public Partida(){
+		
+	}
+
 	public void partidaBatJolastu() {
 		Taula.getTaula();
-		jokalariZuria = new Jokalaria("eskatu izena", "Zuria");
-		jokalariBeltza = new Jokalaria("eskatu izena", "Beltza");
+		jokalariZuria = new Jokalaria(Teklatua.getTeklatua().irakurriString(), "Zuria");
+		jokalariBeltza = new Jokalaria(Teklatua.getTeklatua().irakurriString(), "Beltza");
 		oraingoJokalaria = jokalariZuria;
 		while(!partidaBukatuDa()) {
 			Taula.getTaula().taulaInprimatu2();

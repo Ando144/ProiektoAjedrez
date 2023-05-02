@@ -6,7 +6,7 @@ public abstract class Pieza {
     private int zutabea;
     private String izena;
 
-    protected Pieza(boolean pZuria, int pErrenkada, int pZutabea, String pIzena) {
+    public Pieza(boolean pZuria, int pErrenkada, int pZutabea, String pIzena) {
         this.zuria = pZuria;
         this.errenkada = pErrenkada;
         this.zutabea = pZutabea;

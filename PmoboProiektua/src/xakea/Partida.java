@@ -15,15 +15,15 @@ public class Partida {
 		jokalariZuria = new Jokalaria(Teklatua.getTeklatua().irakurriString(), "Zuria");
 		System.out.println("Idatzi jokalari beltzaren izena.");
 		jokalariBeltza = new Jokalaria(Teklatua.getTeklatua().irakurriString(), "Beltza");
-		System.out.println(jokalariZuria.zuriaDa());
 		oraingoJokalaria = jokalariZuria;
-		while(!partidaBukatuDa()) {
+		mugimenduBatEgin(oraingoJokalaria);
+		/*while(!partidaBukatuDa()) {
 			System.out.println(jokalariZuria.zuriaDa());
 			Taula.getTaula().taulaInprimatu2();
 			mugimenduBatEgin(oraingoJokalaria);
 			Taula.getTaula().taulaInprimatu2();
 			jokalarizAldatu();
-		}
+		}*/
 		emaitzaInprimatu();
 	}
 	public boolean partidaBukatuDa() {

@@ -10,6 +10,7 @@ public class Jokalaria {
 	
 	public Jokalaria(String pIzena, String pKolorea) {
 		//izena = Teklatua.getTeklatua();
+		this.izena=pIzena;
 		piezak = new ArrayList<Pieza>();
 
 		if(pKolorea=="Zuria") {
@@ -30,7 +31,7 @@ public class Jokalaria {
 	}
 	
 	public String getIzena() {
-		return izena;
+		return this.izena;
 	}
 	
 	public boolean zuriaDa() {

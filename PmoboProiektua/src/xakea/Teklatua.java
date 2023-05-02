@@ -28,28 +28,28 @@ public class Teklatua {
 	public int irakurriZut() throws TaulatikKanpoException {
 		String aukera = sc.nextLine();
 		System.out.println(aukera);
-		if(aukera.equals("a")||aukera=="A"){
+		if(aukera.equals("a")||aukera.equals("A")){
 			return 1;
 		}
-		else if(aukera=="b"||aukera=="B"){
+		else if(aukera.equals("b")||aukera.equals("B")){
 			return 2;
 		}
-		else if(aukera=="c"||aukera=="C"){
+		else if(aukera.equals("c")||aukera.equals("C")){
 			return 3;
 		}
-		else if(aukera=="d"||aukera=="D"){
+		else if(aukera.equals("d")||aukera.equals("D")){
 			return 4;
 		}
-		else if(aukera=="e"||aukera=="E"){
+		else if(aukera.equals("e")||aukera.equals("E")){
 			return 5;
 		}
-		else if(aukera=="f"||aukera=="F"){
+		else if(aukera.equals("f")||aukera.equals("F")){
 			return 6;
 		}
-		else if(aukera=="g"||aukera=="G"){
+		else if(aukera.equals("g")||aukera.equals("G")){
 			return 7;
 		}
-		else if(aukera=="h"||aukera=="H"){
+		else if(aukera.equals("h")||aukera.equals("h")){
 			return 8;
 		}else{
 			throw new TaulatikKanpoException();

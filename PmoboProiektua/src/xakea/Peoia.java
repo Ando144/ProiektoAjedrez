@@ -38,6 +38,7 @@ public class Peoia extends Pieza
 
         if(ahalDu==true)
 		{
+			ahalDu=false;
 			 /*Si es blanca */
             if(Taula.getTaula().getLaukikoPieza(this.getErrenkada(), this.getZutabea()).zuriaDa())
             {
@@ -47,9 +48,8 @@ public class Peoia extends Pieza
 					/*Comprueba si cuando esta haciendo el primer movimiento puede desplazarse dos para adelante */
 					if(zeinErrenkadara==this.getErrenkada()+2 && zeinZutabera==this.getZutabea())
 					{
-						if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera) && Taula.getTaula().laukiaBetetaDago(zeinErrenkadara-1, zeinZutabera-1))
-						{
-							ahalDu=false;
+						if(!Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera)&&!Taula.getTaula().laukiaBetetaDago(zeinErrenkadara-1, zeinZutabera-1)){
+							ahalDu=true;
 						}
 					}
 				}
@@ -57,9 +57,8 @@ public class Peoia extends Pieza
 				/*Comprueba si puede moverse uno hacia adelante*/
 				if (zeinErrenkadara==this.getErrenkada()+1 && zeinZutabera==this.getZutabea())
 				{
-					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
-					{
-						ahalDu=false;
+					if(!Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera)){
+						ahalDu=true;
 					}
 				}
 
@@ -68,9 +67,9 @@ public class Peoia extends Pieza
 				{
 					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
 					{
-						if(Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+						if(Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa()==false)
 						{
-							ahalDu=false;
+							ahalDu=true;
 						}
 					}
 				}
@@ -80,9 +79,9 @@ public class Peoia extends Pieza
 				{
 					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
 					{
-						if(Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+						if(Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa()==false)
 						{
-							ahalDu=false;
+							ahalDu=true;
 						}
 					}
 				}
@@ -91,14 +90,13 @@ public class Peoia extends Pieza
 			}else{
 				
 				/*en el caso de que sea la primera linea de las negras */
-				if(this.getErrenkada()==7)
+				if(this.getErrenkada()==6)
 				{
 					/*Comprueba si cuando esta haciendo el primer movimiento puede desplazarse dos para adelante */
 					if(zeinErrenkadara==this.getErrenkada()-2 && zeinZutabera==this.getZutabea())
 					{
-						if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera) && Taula.getTaula().laukiaBetetaDago(zeinErrenkadara+1, zeinZutabera+1))
-						{
-							ahalDu=false;
+						if(!Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera)&&!Taula.getTaula().laukiaBetetaDago(zeinErrenkadara+1, zeinZutabera+1)){
+							ahalDu=true;
 						}
 					}
 				}
@@ -106,9 +104,8 @@ public class Peoia extends Pieza
 				/*Comprueba si puede moverse uno hacia adelante*/
 				if (zeinErrenkadara==this.getErrenkada()-1 && zeinZutabera==this.getZutabea())
 				{
-					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
-					{
-						ahalDu=false;
+					if(!Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera)){
+						ahalDu=true;
 					}
 				}
 				/*Comprueba si puede moverse a la derecha para comer, en el caso de que sea una ficha de su equipo no puede  */
@@ -116,9 +113,8 @@ public class Peoia extends Pieza
 				{
 					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
 					{
-						if(!Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
-						{
-							ahalDu=false;
+						if(Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa()){
+							ahalDu=true;
 						}
 					}
 				}
@@ -128,10 +124,9 @@ public class Peoia extends Pieza
 				{
 					if(Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera))
 					{
-						if(!Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+						if(Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
 						{
-							ahalDu=false;
-							
+							ahalDu=true;
 						}
 					}
 				}

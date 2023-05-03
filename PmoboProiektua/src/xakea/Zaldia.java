@@ -9,7 +9,6 @@ public class Zaldia extends Pieza {
 
     @Override
     public boolean mugituDaiteke(int zeinErrenkadara, int zeinZutabera) {
-        System.out.println("malmal"); 
         boolean ahalDu = true;
     	//comprueba a ver si la casilla a la que se va a mover esta dentro del tablero
         if(!Taula.getTaula().laukiaTaulanDago(zeinErrenkadara, zeinZutabera)){

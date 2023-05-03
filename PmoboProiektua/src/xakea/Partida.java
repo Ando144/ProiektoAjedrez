@@ -10,71 +10,53 @@ public class Partida {
 	}
 
 	public void partidaBatJolastu() {
-		Taula.getTaula().taulaInprimatu2();
+		Taula.getTaula().taulaInprimatu();
 		System.out.println("Idatzi jokalari zuriaren izena.");
 		jokalariZuria = new Jokalaria(Teklatua.getTeklatua().irakurriString(), "Zuria");
 		System.out.println("Idatzi jokalari beltzaren izena.");
 		jokalariBeltza = new Jokalaria(Teklatua.getTeklatua().irakurriString(), "Beltza");
 		oraingoJokalaria = jokalariZuria;
-		int kont =0;
-		while(kont<10){
+		while(!partidaBukatuDa()) {
+			Taula.getTaula().taulaInprimatu();
 			mugimenduBatEgin(oraingoJokalaria);
-			Taula.getTaula().taulaInprimatu2();
 			jokalarizAldatu();
-		kont++;
 		}
-		/*while(!partidaBukatuDa()) {
-			System.out.println(jokalariZuria.zuriaDa());
-			Taula.getTaula().taulaInprimatu2();
-			mugimenduBatEgin(oraingoJokalaria);
-			Taula.getTaula().taulaInprimatu2();
-			jokalarizAldatu();
-		}*/
 		emaitzaInprimatu();
 	}
+
 	public boolean partidaBukatuDa() {
 		return(this.xakeMate(jokalariZuria)||this.xakeMate(jokalariBeltza)||this.berdinketa());
 	}
 	
 	public boolean xakeMate(Jokalaria pJokalaria) {
-		if(this.xakeanDago(pJokalaria)){
-			int erregeaErr = pJokalaria.getErregea().getErrenkada();
-			int erregeaZut = pJokalaria.getErregea().getZutabea();
-			for(int i = erregeaErr-1; i<=erregeaErr+1; i++){
-				for(int j = erregeaZut-1; j<=erregeaZut+1; j++){
-					if(Taula.getTaula().laukiaTaulanDago(i, j)){
-						Erregea erregeaKopia = new Erregea(pJokalaria.zuriaDa(), i, j, "  ");
-						Jokalaria aurkakoa;
-						if(pJokalaria.zuriaDa()){
-							aurkakoa = jokalariBeltza;
-						}else{
-							aurkakoa = jokalariZuria;
-						}
-						if(aurkakoa.erregeaMehatxatzenAriDa(erregeaKopia)==false){
-							return false;
-						}
-						erregeaKopia = null;
-					}
-				}
-			}
-			return true;
-		}else{
-			return false;
-		}
+	    Erregea erregea = pJokalaria.getErregea();
+	    int errErregea = erregea.getErrenkada();
+	    int zutErregea = erregea.getZutabea();
+	    if (!xakeanDago(errErregea, zutErregea, pJokalaria)) {
+	        return false;
+	    }
+	    for (int i = 0; i < 8; i++) {
+	        for (int j = 0; j < 8; j++) {
+	            if (erregea.mugituDaiteke(i, j) && !xakeanDago(i,j,pJokalaria)) {
+	                return false;
+	            }
+	        }
+	    }
+	    return true;
 	}
 
-	public boolean xakeanDago(Jokalaria pJokalaria){
+	private boolean xakeanDago(int pErrErregea, int pZutErregea, Jokalaria pJokalaria) {
 		Jokalaria aurkakoa;
 		if(pJokalaria.zuriaDa()){
 			aurkakoa = jokalariBeltza;
 		}else{
 			aurkakoa = jokalariZuria;
 		}
-		if(aurkakoa.erregeaMehatxatzenAriDa(pJokalaria.getErregea())){
-			return true;
-		}else{
-			return false;
-		}
+	    if(aurkakoa.posizioaMehatxatzenAriDa(pErrErregea,pZutErregea)) {
+	        return true;
+	    }else{
+	    	return false;
+	    }
 	}
 	
 	public boolean berdinketa() {
@@ -209,11 +191,11 @@ public class Partida {
 	
 	public void emaitzaInprimatu() {
 		if(this.xakeMate(jokalariZuria)) {
-			System.out.println("Partida bukatu da! "+jokalariBeltza.getIzena()+" da irabazlea.");
+			System.out.println("Partida bukatu da. "+jokalariBeltza.getIzena()+" da irabazlea.");
 		}else if(this.xakeMate(jokalariBeltza)){
-			System.out.println("Partida bukatu da! "+jokalariZuria.getIzena()+" da irabazlea.");
+			System.out.println("Partida bukatu da. "+jokalariZuria.getIzena()+" da irabazlea.");
 		}else {
-			System.out.println("Partida bukatu da! Berdinketa dago.");
+			System.out.println("Partida bukatu da. Berdinketa dago.");
 		}
 	}
 }

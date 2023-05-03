@@ -13,14 +13,14 @@ public class Jokalaria {
 		this.izena=pIzena;
 		piezak = new ArrayList<Pieza>();
 
-		if(pKolorea=="Zuria") {
+		if(pKolorea.equals("Zuria")) {
 			zuria=true;
 			for(int i=0; i<=1; i++) {
 	        	for(int j=0; j<=7; j++) {
 	        		piezak.add(Taula.getTaula().getLaukikoPieza(i,j));
 	        	}
 	        }
-		}else if(pKolorea=="Beltza") {
+		}else{
 			zuria=false;
 			for(int i=7; i>=6; i--) {
 	        	for(int j=0; j<=7; j++) {
@@ -55,10 +55,10 @@ public class Jokalaria {
 		return ((Erregea)hau);
 	}
 
-	public boolean erregeaMehatxatzenAriDa(Erregea pErregea){
+	public boolean posizioaMehatxatzenAriDa(int pErr, int pZut){
 		Iterator<Pieza> itr = this.getIteradorea();
 		while(itr.hasNext()){
-			if(itr.next().mugituDaiteke(pErregea.getErrenkada(), pErregea.getZutabea())){
+			if(itr.next().mugituDaiteke(pErr, pZut)){
 				return true;
 			}
 		}

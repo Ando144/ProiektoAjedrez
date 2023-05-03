@@ -119,9 +119,12 @@ public class Partida {
 					System.out.println("Hori ez da taulako errenkada bat. Beste bat aukeratu.");
 				}
 			}
+			System.out.println("b");
 			piezaZuzena = piezaZuzenaDa(jokalaria, errNon-1, zutNon-1);
 		}
+		System.out.println("c");
 		mugitzekoPieza = Taula.getTaula().getLaukikoPieza(errNon-1, zutNon-1);
+		System.out.println("d");
 		while(!mugZuzena) {
 			eginda = false;
 			System.out.println("Aukeratu zein zutabera mugitu nahi duzun pieza (A-tik H-ra)");
@@ -131,6 +134,7 @@ public class Partida {
 					eginda = true;
 				}
 				catch(TaulatikKanpoException e){
+					System.out.println("e");
 					System.out.println("Hori ez da taulako zutabe bat. Beste bat aukeratu.");
 				}
 			}

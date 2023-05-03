@@ -48,9 +48,10 @@ public class Teklatua {
 		else if(aukera.equals("g")||aukera.equals("G")){
 			return 7;
 		}
-		else if(aukera.equals("h")||aukera.equals("h")){
+		else if(aukera.equals("h")||aukera.equals("H")){
 			return 8;
-		}else{
+		}
+		else{
 			throw new TaulatikKanpoException();
 		}
 	}

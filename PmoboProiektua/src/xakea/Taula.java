@@ -84,13 +84,13 @@ public class Taula {
                 if(getTaula().getLaukikoPieza(i, j)!=null){
                     ikurra = getTaula().getLaukikoPieza(i, j).getIzena();
                 }else{
-                    ikurra = " ";
+                    ikurra = "■";
                 }
-                System.out.print("["+ikurra+"]");
+                System.out.print(ikurra + " ");
             }
         }
         System.out.println("");
-        System.out.print("   A  B  C  D  E  F  G  H");
+        System.out.print("  A B C D E F G H");
         System.out.println("");
     }
 

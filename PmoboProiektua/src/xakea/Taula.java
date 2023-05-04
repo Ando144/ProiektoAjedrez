@@ -21,30 +21,30 @@ public class Taula {
 
         //Pieza zuriak sortu eta kokatu
         boolean zuria = true;
-        this.laukiak[0][0].setPieza(new Dorrea(zuria,0,0, gorria + "D" + resetColor));
-        this.laukiak[0][7].setPieza(new Dorrea(zuria,0,7, gorria + "D" + resetColor));
-        this.laukiak[0][1].setPieza(new Zaldia(zuria,0,1,gorria + "Z" + resetColor));
-        this.laukiak[0][6].setPieza(new Zaldia(zuria,0,6,gorria + "Z" + resetColor));
-        this.laukiak[0][2].setPieza(new Alfila(zuria,0,2,gorria + "A" + resetColor));
-        this.laukiak[0][5].setPieza(new Alfila(zuria,0,5,gorria + "A" + resetColor));
-        this.laukiak[0][3].setPieza(new Erregea(zuria,0,3,gorria + "K" + resetColor));
-        this.laukiak[0][4].setPieza(new Erregina(zuria,0,4,gorria + "♔" + resetColor));
+        this.laukiak[0][0].setPieza(new Dorrea(zuria,0,0, gorria + "♖" + resetColor));
+        this.laukiak[0][7].setPieza(new Dorrea(zuria,0,7, gorria + "♖" + resetColor));
+        this.laukiak[0][1].setPieza(new Zaldia(zuria,0,1,gorria + "♘" + resetColor));
+        this.laukiak[0][6].setPieza(new Zaldia(zuria,0,6,gorria + "♘" + resetColor));
+        this.laukiak[0][2].setPieza(new Alfila(zuria,0,2,gorria + "♗" + resetColor));
+        this.laukiak[0][5].setPieza(new Alfila(zuria,0,5,gorria + "♗" + resetColor));
+        this.laukiak[0][4].setPieza(new Erregea(zuria,0,3,gorria + "♔" + resetColor));
+        this.laukiak[0][3].setPieza(new Erregina(zuria,0,4,gorria + "♕" + resetColor));
         for(int i=0; i<=7; i++) {
-        	this.laukiak[1][i].setPieza(new Peoia(zuria,1,i,gorria + "P" + resetColor));
+        	this.laukiak[1][i].setPieza(new Peoia(zuria,1,i,gorria + "♙" + resetColor));
         }
         
         //Pieza beltzak sortu eta kokatu
         zuria = false;
-        this.laukiak[7][0].setPieza(new Dorrea(zuria,7,0,beltza + "D" + resetColor));
-        this.laukiak[7][7].setPieza(new Dorrea(zuria,7,7,beltza + "D" + resetColor));
-        this.laukiak[7][1].setPieza(new Zaldia(zuria,7,1,beltza + "Z" + resetColor));
-        this.laukiak[7][6].setPieza(new Zaldia(zuria,7,6,beltza + "Z"+ resetColor));
-        this.laukiak[7][2].setPieza(new Alfila(zuria,7,2,beltza + "A" + resetColor));
-        this.laukiak[7][5].setPieza(new Alfila(zuria,7,5,beltza + "A" + resetColor));
-        this.laukiak[7][3].setPieza(new Erregea(zuria,7,3,beltza + "K" + resetColor));
-        this.laukiak[7][4].setPieza(new Erregina(zuria,7,4,beltza + "Q" + resetColor));
+        this.laukiak[7][0].setPieza(new Dorrea(zuria,7,0,beltza + "♖" + resetColor));
+        this.laukiak[7][7].setPieza(new Dorrea(zuria,7,7,beltza + "♖" + resetColor));
+        this.laukiak[7][1].setPieza(new Zaldia(zuria,7,1,beltza + "♘" + resetColor));
+        this.laukiak[7][6].setPieza(new Zaldia(zuria,7,6,beltza + "♘"+ resetColor));
+        this.laukiak[7][2].setPieza(new Alfila(zuria,7,2,beltza + "♗" + resetColor));
+        this.laukiak[7][5].setPieza(new Alfila(zuria,7,5,beltza + "♗" + resetColor));
+        this.laukiak[7][4].setPieza(new Erregea(zuria,7,3,beltza + "♔" + resetColor));
+        this.laukiak[7][3].setPieza(new Erregina(zuria,7,4,beltza + "♕" + resetColor));
         for(int i=0; i<=7; i++) {
-        	this.laukiak[6][i].setPieza(new Peoia(zuria,6,i,beltza + "P" + resetColor));
+        	this.laukiak[6][i].setPieza(new Peoia(zuria,6,i,beltza + "♙" + resetColor));
         } 
     }
     

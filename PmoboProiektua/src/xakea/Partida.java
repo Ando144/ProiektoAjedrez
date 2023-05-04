@@ -26,6 +26,7 @@ public class Partida {
 
 	public boolean partidaBukatuDa() {
 		return(this.xakeMate(jokalariZuria)||this.xakeMate(jokalariBeltza)||this.berdinketa());
+		
 	}
 	
 	public boolean xakeMate(Jokalaria pJokalaria) {

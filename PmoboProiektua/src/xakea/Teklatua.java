@@ -27,6 +27,7 @@ public class Teklatua {
 
 	public int irakurriZut() throws TaulatikKanpoException {
 		String aukera = sc.nextLine();
+		System.out.println(aukera);
 		if(aukera.equals("a")||aukera.equals("A")){
 			return 1;
 		}
@@ -57,7 +58,7 @@ public class Teklatua {
 	}
 
 	public int irakurriErr() throws TaulatikKanpoException{
-		int aukera = sc.nextInt();
+		int aukera = sc.nextInt();sc.nextLine();
 		if(aukera >= 1 || aukera <=8){
 			return aukera;
 		}else{

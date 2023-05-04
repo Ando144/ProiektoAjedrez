@@ -21,36 +21,44 @@ public class Erregina extends Pieza {
         if(ahalDu==true){
             //Si se mueve en diagonal, literal lo mismo que en el alfil
             if(Math.abs(this.getErrenkada()-zeinErrenkadara)==Math.abs(getZutabea()-zeinZutabera)){
+                            //derecha
                 if(this.getZutabea()<zeinZutabera){
+                    //arriba derecha
                     if(this.getErrenkada()<zeinErrenkadara){
-                        while(ahalDu!=false && this.getZutabea()+kont!=zeinZutabera){
-                            if(Taula.getTaula().laukiaBetetaDago(this.getZutabea()+kont, this.getErrenkada()+kont)){
+                        //Va usando el contador a vase de sumarlo o restarlo a la posicion inicial, depende de hacia
+                        //donde se mueva, para comprobar si las casillas estan ocupadas
+                        while(this.getZutabea()+kont<zeinZutabera && ahalDu==true){
+                            if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont,this.getZutabea()+kont)){
                                 ahalDu=false;
                             }
                             kont++;
                         }
                     }
+                    //abajo derecha
                     else if(this.getErrenkada()>zeinErrenkadara){
-                        while(ahalDu!=false && this.getZutabea()+kont!=zeinZutabera){
-                            if(Taula.getTaula().laukiaBetetaDago(this.getZutabea()+kont, this.getErrenkada()-kont)){
+                        while(this.getZutabea()+kont<zeinZutabera && ahalDu==true){
+                            if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont, this.getZutabea()-kont)){
                                 ahalDu=false;
                             }
                             kont++;
                         }
                     }
                 }
+                //izquierda
                 else if(this.getZutabea()>zeinZutabera){
+                    //arriba izquierda
                     if(this.getErrenkada()<zeinErrenkadara){
-                        while(ahalDu!=false && this.getZutabea()-kont!=zeinZutabera){
-                            if(Taula.getTaula().laukiaBetetaDago(this.getZutabea()-kont, this.getErrenkada()-kont)){
+                        while(this.getZutabea()-kont>zeinZutabera && ahalDu==true){
+                            if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont, this.getZutabea()-kont)){
                                 ahalDu=false;
                             }
                             kont++;
                         }
                     }
+                    //abajo izquierda
                     else if(this.getErrenkada()>zeinErrenkadara){
-                        while(ahalDu!=false && this.getZutabea()-kont!=zeinZutabera){
-                            if(Taula.getTaula().laukiaBetetaDago(this.getZutabea()-kont, this.getErrenkada()-kont)){
+                        while(this.getZutabea()-kont>zeinZutabera && ahalDu==true){
+                            if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()-kont, this.getZutabea()-kont)){
                                 ahalDu=false;
                             }
                             kont++;
@@ -60,52 +68,81 @@ public class Erregina extends Pieza {
             }
             //Si se mueve en linea recta, lo mismo que en dorrea
             else if (this.getErrenkada()==zeinErrenkadara ||this.getZutabea()==zeinZutabera){
-                if(this.getErrenkada()==zeinErrenkadara){
-                    if(this.getZutabea()<zeinZutabera){
-                        kont=this.getZutabea()+1;
-                        while(ahalDu==true && kont!=zeinZutabera){
-                            if(Taula.getTaula().laukiaBetetaDago(kont, zeinErrenkadara)){
-                                ahalDu=false;
-                            }
-                            kont++;
-                        }
-                    }
-                    else if(this.getZutabea()>zeinZutabera){
-                        kont=this.getZutabea()-1;
-                        while(ahalDu==true && kont!=zeinZutabera){
-                            if(Taula.getTaula().laukiaBetetaDago(kont, zeinErrenkadara)){
-                                ahalDu=false;
-                            }
-                            kont--;
-                        }
-                    }
-                }
-                else if(this.getZutabea()==zeinZutabera){
-                    if(this.getErrenkada()<zeinErrenkadara){
-                        kont=this.getErrenkada()+1;
-                        while(ahalDu==true && kont!=zeinErrenkadara){
-                            if(Taula.getTaula().laukiaBetetaDago(zeinZutabera,kont)){
-                                ahalDu=false;
-                            }
-                            kont++;
-                        }
-                    }
-                    else if(this.getErrenkada()>zeinErrenkadara){
-                        kont=this.getErrenkada()-1;
-                        while(ahalDu==true && kont!=zeinErrenkadara){
-                            if(Taula.getTaula().laukiaBetetaDago(zeinZutabera, kont)){
-                                ahalDu=false;
-                            }
-                            kont--;
-                        }
-                    }
-                }
-            }
-            else{
-                ahalDu=false;
-            }
+                				//Horizontal Izquierda
+				if (this.getZutabea()>zeinZutabera) 
+				{
+					kont=this.getZutabea()-1;
+					/*Mientras que el contador no llegue a la casilla destino del movimiento especificado(Vertical u Horizontal)
+					o que haya encontrado una ficha por el camino (ahalDu==false) seguira iterando
+					*/
+					while((kont > zeinZutabera) && (ahalDu==true)) 
+					{
+						/*Mira aver si la casilla especificada tiene alguna pieza y si es el caso ahalDu=false */
+						if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada(), kont)) 
+						{
+							ahalDu=false;
+						}
+						kont=kont-1;
+					}
+				}
+				else //Horizontal Derecha
+				{
+					kont=this.getZutabea()+1;
+					/*Mientras que el contador no llegue a la casilla destino del movimiento especificado(Vertical u Horizontal)
+					o que haya encontrado una ficha por el camino (ahalDu==false) seguira iterando
+					*/
+					while((kont < zeinZutabera) && (ahalDu==true)) 
+					{
+						/*Mira aver si la casilla especificada tiene alguna pieza y si es el caso ahalDu=false */
+						if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada(), kont)) 
+						{
+							ahalDu=false;
+						}
+						kont=kont+1;
+					}
+				}
+			}
+			else 
+			{	
+				/*Lo mismo que el segundo if de arriba, para ver si el movimiento es hacia arriba o hacia abajo */
+				
+				kont=0;
+				//Vertical Abajo
+				if (this.getErrenkada()>zeinErrenkadara) 
+				{
+					kont=this.getErrenkada()-1;
+					/*Mientras que el contador no llegue a la casilla destino del movimiento especificado(Vertical u Horizontal)
+					o que haya encontrado una ficha por el camino (ahalDu==false) seguira iterando
+					*/
+					while((kont > zeinErrenkadara) && (ahalDu==true)) 
+					{
+						/*Mira aver si la casilla especificada tiene alguna pieza y si es el caso ahalDu=false */
+						if(Taula.getTaula().laukiaBetetaDago(kont, this.getZutabea())) 
+						{
+							ahalDu=false;
+						}
+						kont=kont-1;
+					}
+				}
+				else //Vertical Arriba
+				{
+					kont=this.getErrenkada()+1;
+					/*Mientras que el contador no llegue a la casilla destino del movimiento especificado(Vertical u Horizontal)
+					o que haya encontrado una ficha por el camino (ahalDu==false) seguira iterando
+					*/
+					while((kont < zeinErrenkadara) && (ahalDu==true)) 
+					{
+						System.out.println(Taula.getTaula().getLaukikoPieza(kont, this.getZutabea()));
+						/*Mira aver si la casilla especificada tiene alguna pieza y si es el caso ahalDu=false */
+						if(Taula.getTaula().laukiaBetetaDago(kont, this.getZutabea())) 
+						{
+							ahalDu=false;
+						}
+						kont=kont+1;
+					}
+				}
+			}
         }
-
     	return ahalDu; 
     }
 }

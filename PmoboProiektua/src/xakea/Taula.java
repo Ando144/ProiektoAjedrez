@@ -6,6 +6,8 @@ public class Taula {
     private static final int tamaina = 8;
     private Laukia[][] laukiak;
     private static Taula nireTaula=null;
+    private String beltza = "\u001B[34m";
+    private String resetColor = "\u001B[0m";
 
     private Taula() {
         this.laukiak = new Laukia[tamaina][tamaina];
@@ -18,30 +20,30 @@ public class Taula {
 
         //Pieza zuriak sortu eta kokatu
         boolean zuria = true;
-        this.laukiak[0][0].setPieza(new Dorrea(zuria,0,0, "DZ"));
-        this.laukiak[0][7].setPieza(new Dorrea(zuria,0,7, "DZ"));
-        this.laukiak[0][1].setPieza(new Zaldia(zuria,0,1,"ZZ"));
-        this.laukiak[0][6].setPieza(new Zaldia(zuria,0,6,"ZZ"));
-        this.laukiak[0][2].setPieza(new Alfila(zuria,0,2,"AZ"));
-        this.laukiak[0][5].setPieza(new Alfila(zuria,0,5,"AZ"));
-        this.laukiak[0][3].setPieza(new Erregea(zuria,0,3,"KZ"));
-        this.laukiak[0][4].setPieza(new Erregina(zuria,0,4,"QZ"));
+        this.laukiak[0][0].setPieza(new Dorrea(zuria,0,0, "D"));
+        this.laukiak[0][7].setPieza(new Dorrea(zuria,0,7, "D"));
+        this.laukiak[0][1].setPieza(new Zaldia(zuria,0,1,"Z"));
+        this.laukiak[0][6].setPieza(new Zaldia(zuria,0,6,"Z"));
+        this.laukiak[0][2].setPieza(new Alfila(zuria,0,2,"A"));
+        this.laukiak[0][5].setPieza(new Alfila(zuria,0,5,"A"));
+        this.laukiak[0][3].setPieza(new Erregea(zuria,0,3,"K"));
+        this.laukiak[0][4].setPieza(new Erregina(zuria,0,4,"Q"));
         for(int i=0; i<=7; i++) {
-        	this.laukiak[1][i].setPieza(new Peoia(zuria,1,i,"PZ"));
+        	this.laukiak[1][i].setPieza(new Peoia(zuria,1,i,"P"));
         }
         
         //Pieza beltzak sortu eta kokatu
         zuria = false;
-        this.laukiak[7][0].setPieza(new Dorrea(zuria,7,0,"DB"));
-        this.laukiak[7][7].setPieza(new Dorrea(zuria,7,7,"DB"));
-        this.laukiak[7][1].setPieza(new Zaldia(zuria,7,1,"ZB"));
-        this.laukiak[7][6].setPieza(new Zaldia(zuria,7,6,"ZB"));
-        this.laukiak[7][2].setPieza(new Alfila(zuria,7,2,"AB"));
-        this.laukiak[7][5].setPieza(new Alfila(zuria,7,5,"AB"));
-        this.laukiak[7][3].setPieza(new Erregea(zuria,7,3,"KB"));
-        this.laukiak[7][4].setPieza(new Erregina(zuria,7,4,"QB"));
+        this.laukiak[7][0].setPieza(new Dorrea(zuria,7,0,beltza + "D" + resetColor));
+        this.laukiak[7][7].setPieza(new Dorrea(zuria,7,7,beltza + "D" + resetColor));
+        this.laukiak[7][1].setPieza(new Zaldia(zuria,7,1,beltza + "Z" + resetColor));
+        this.laukiak[7][6].setPieza(new Zaldia(zuria,7,6,beltza + "Z"+ resetColor));
+        this.laukiak[7][2].setPieza(new Alfila(zuria,7,2,beltza + "A" + resetColor));
+        this.laukiak[7][5].setPieza(new Alfila(zuria,7,5,beltza + "A" + resetColor));
+        this.laukiak[7][3].setPieza(new Erregea(zuria,7,3,beltza + "K" + resetColor));
+        this.laukiak[7][4].setPieza(new Erregina(zuria,7,4,beltza + "Q" + resetColor));
         for(int i=0; i<=7; i++) {
-        	this.laukiak[6][i].setPieza(new Peoia(zuria,6,i,"PB"));
+        	this.laukiak[6][i].setPieza(new Peoia(zuria,6,i,beltza + "P" + resetColor));
         } 
     }
     
@@ -82,13 +84,13 @@ public class Taula {
                 if(getTaula().getLaukikoPieza(i, j)!=null){
                     ikurra = getTaula().getLaukikoPieza(i, j).getIzena();
                 }else{
-                    ikurra = "  ";
+                    ikurra = " ";
                 }
                 System.out.print("["+ikurra+"]");
             }
         }
         System.out.println("");
-        System.out.print("   A   B   C   D   E   F   G   H");
+        System.out.print("   A  B  C  D  E  F  G  H");
         System.out.println("");
     }
 

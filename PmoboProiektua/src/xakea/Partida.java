@@ -128,6 +128,7 @@ public class Partida {
 					eginda = true;
 				}
 				catch(TaulatikKanpoException e){
+					System.out.println("f");
 					System.out.println("Hori ez da taulako errenkada bat. Beste bat aukeratu.");
 				}
 			}

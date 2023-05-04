@@ -28,7 +28,7 @@ public class Taula {
         this.laukiak[0][2].setPieza(new Alfila(zuria,0,2,gorria + "A" + resetColor));
         this.laukiak[0][5].setPieza(new Alfila(zuria,0,5,gorria + "A" + resetColor));
         this.laukiak[0][3].setPieza(new Erregea(zuria,0,3,gorria + "K" + resetColor));
-        this.laukiak[0][4].setPieza(new Erregina(zuria,0,4,gorria + "Q" + resetColor));
+        this.laukiak[0][4].setPieza(new Erregina(zuria,0,4,gorria + "♔" + resetColor));
         for(int i=0; i<=7; i++) {
         	this.laukiak[1][i].setPieza(new Peoia(zuria,1,i,gorria + "P" + resetColor));
         }
@@ -85,7 +85,7 @@ public class Taula {
                 if(getTaula().getLaukikoPieza(i, j)!=null){
                     ikurra = getTaula().getLaukikoPieza(i, j).getIzena();
                 }else{
-                    ikurra = "■";
+                    ikurra = "□";
                 }
                 System.out.print(ikurra + " ");
             }

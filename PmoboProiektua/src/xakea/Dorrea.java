@@ -46,7 +46,7 @@ public class Dorrea extends Pieza
 		}
 
 		//por si no cumple alguna de las condiciones anteriores que ni entre
-		if(ahalDu==false)
+		if(ahalDu==true)
 		{
 			/*Este if es para ver si se mueve en la misma errenkada y el else para el caso en el que se mueva en la misma zutabe */
 			if (zeinErrenkadara == this.getErrenkada())

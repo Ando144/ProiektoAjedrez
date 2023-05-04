@@ -7,68 +7,94 @@ public class Erregina extends Pieza {
     }
 
     @Override
-    public boolean mugituDaiteke(int zeinErrenkadara, int zeinZutabera) {
+	public boolean mugituDaiteke(int zeinErrenkadara, int zeinZutabera) {
     	boolean ahalDu = true;
-        int kont=1;
-    	//Comprobar que no quiera ir fuera de la tabla
-        if(!Taula.getTaula().laukiaTaulanDago(zeinErrenkadara, zeinZutabera)){
+		int kont = 1;
+    	/*int desplErrenkadak = Math.abs(zeinErrenkadara - this.getErrenkada());
+        int desplZutabeak = Math.abs(zeinZutabera - this.getZutabea());
+        ahalDu = desplErrenkadak <= 1 && desplZutabeak <= 1;*/
+		if (!Taula.getTaula().laukiaTaulanDago(zeinErrenkadara, zeinZutabera))
+		{
+			ahalDu=false;
+		}
+		/*Comprobador de si la pieza es de su mismo color */
+		if (super.zuriaDa())
+		{
+			/*La pieza es blanca y quiere moverse a un sitio con una pieza blanca */
+			if (Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera) && Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+			{
+				ahalDu=false;
+			}
+		}
+		else
+		{	/*La pieza es negra y quiere moverse a un sitio con una pieza negra */
+			if (Taula.getTaula().laukiaBetetaDago(zeinErrenkadara, zeinZutabera) && !Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa())
+			{
+				ahalDu=false;
+			}
+		}
+		//Comprueba si el movimiento que hace es vertical o horizontal
+		if((this.getErrenkada()!=zeinErrenkadara)&&(this.getZutabea()!=zeinZutabera))
+		{
+			ahalDu=false;
+		}
+		//Comprueba que se este moviendo en diagonal
+        if(Math.abs(this.getErrenkada()-zeinErrenkadara)!=Math.abs(this.getZutabea()-zeinZutabera)){
             ahalDu=false;
         }
-        //Comprobar que no haya una pieza de su mismo color donde quiere moverse
-        if(this.zuriaDa()==Taula.getTaula().getLaukikoPieza(zeinErrenkadara, zeinZutabera).zuriaDa()){
-            ahalDu=false;
-        }
-        if(ahalDu==true){
-            //Si se mueve en diagonal, literal lo mismo que en el alfil
-            if(Math.abs(this.getErrenkada()-zeinErrenkadara)==Math.abs(getZutabea()-zeinZutabera)){
-                            //derecha
-                if(this.getZutabea()<zeinZutabera){
-                    //arriba derecha
-                    if(this.getErrenkada()<zeinErrenkadara){
-                        //Va usando el contador a vase de sumarlo o restarlo a la posicion inicial, depende de hacia
-                        //donde se mueva, para comprobar si las casillas estan ocupadas
-                        while(this.getZutabea()+kont<zeinZutabera && ahalDu==true){
-                            if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont,this.getZutabea()+kont)){
-                                ahalDu=false;
-                            }
-                            kont++;
+		if(ahalDu==true){
+            //derecha
+            if(this.getZutabea()<zeinZutabera){
+                //arriba derecha
+                if(this.getErrenkada()<zeinErrenkadara){
+                    //Va usando el contador a vase de sumarlo o restarlo a la posicion inicial, depende de hacia
+                    //donde se mueva, para comprobar si las casillas estan ocupadas
+                    while(this.getZutabea()+kont<zeinZutabera && ahalDu==true){
+                        if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont,this.getZutabea()+kont)){
+                            ahalDu=false;
                         }
-                    }
-                    //abajo derecha
-                    else if(this.getErrenkada()>zeinErrenkadara){
-                        while(this.getZutabea()+kont<zeinZutabera && ahalDu==true){
-                            if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont, this.getZutabea()-kont)){
-                                ahalDu=false;
-                            }
-                            kont++;
-                        }
+                        kont++;
                     }
                 }
-                //izquierda
-                else if(this.getZutabea()>zeinZutabera){
-                    //arriba izquierda
-                    if(this.getErrenkada()<zeinErrenkadara){
-                        while(this.getZutabea()-kont>zeinZutabera && ahalDu==true){
-                            if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont, this.getZutabea()-kont)){
-                                ahalDu=false;
-                            }
-                            kont++;
+                //abajo derecha
+                else if(this.getErrenkada()>zeinErrenkadara){
+                    while(this.getZutabea()+kont<zeinZutabera && ahalDu==true){
+                        if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont, this.getZutabea()-kont)){
+                            ahalDu=false;
                         }
-                    }
-                    //abajo izquierda
-                    else if(this.getErrenkada()>zeinErrenkadara){
-                        while(this.getZutabea()-kont>zeinZutabera && ahalDu==true){
-                            if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()-kont, this.getZutabea()-kont)){
-                                ahalDu=false;
-                            }
-                            kont++;
-                        }
+                        kont++;
                     }
                 }
             }
-            //Si se mueve en linea recta, lo mismo que en dorrea
-            else if (this.getErrenkada()==zeinErrenkadara ||this.getZutabea()==zeinZutabera){
-                				//Horizontal Izquierda
+            //izquierda
+            else if(this.getZutabea()>zeinZutabera){
+                //arriba izquierda
+                if(this.getErrenkada()<zeinErrenkadara){
+                    while(this.getZutabea()-kont>zeinZutabera && ahalDu==true){
+                        if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont, this.getZutabea()-kont)){
+                            ahalDu=false;
+                        }
+                        kont++;
+                    }
+                }
+                //abajo izquierda
+                else if(this.getErrenkada()>zeinErrenkadara){
+                    while(this.getZutabea()-kont>zeinZutabera && ahalDu==true){
+                        if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()-kont, this.getZutabea()-kont)){
+                            ahalDu=false;
+                        }
+                        kont++;
+                    }
+                }
+            }		
+        }
+		if(ahalDu ==true){
+			if (zeinErrenkadara == this.getErrenkada())
+			{	/*Este if es para ver a que lado de la torre esta haciendose el movimiento, en este caso es
+				en la parte izquierda de la misma cuando se mueve en horizontal y el else en cambio es para cuando se 
+				mueve a la derecha de la torre tambien en el eje horizontal */
+				
+				//Horizontal Izquierda
 				if (this.getZutabea()>zeinZutabera) 
 				{
 					kont=this.getZutabea()-1;
@@ -142,7 +168,7 @@ public class Erregina extends Pieza {
 					}
 				}
 			}
-        }
-    	return ahalDu; 
+		}
+        return ahalDu;
     }
 }

@@ -81,25 +81,25 @@ public class Partida {
 		Pieza mugitzekoPieza = null;
 		while(!piezaZuzena) {
 			eginda = false;
-			System.out.println(pJokalaria.getIzena() + "Aukeratu mugitu nahi duzun piezaren zutabea (A-tik H-ra)");
+			System.out.println(pJokalaria.getIzena() + " Aukeratu mugitu nahi duzun piezaren zutabea (A-tik H-ra)");
 			while(! eginda){
 				try{
 					zutNon = Teklatua.getTeklatua().irakurriZut();
 					eginda = true;
 				}
 				catch(TaulatikKanpoException e){
-					System.out.println("Hori ez da taulako zutabe bat. Beste bat aukeratu.");
+					System.out.println(pJokalaria.getIzena() +" Hori ez da taulako zutabe bat. Beste bat aukeratu.");
 				}
 			}
 			eginda = false;
-			System.out.println("Aukeratu mugitu nahi duzun piezaren errenkada (1etik 8ra)");
+			System.out.println( pJokalaria.getIzena() +" Aukeratu mugitu nahi duzun piezaren errenkada (1etik 8ra)");
 			while(! eginda){
 				try{
 					errNon = Teklatua.getTeklatua().irakurriErr();
 					eginda = true;
 				}
 				catch(TaulatikKanpoException e){
-					System.out.println("Hori ez da taulako errenkada bat. Beste bat aukeratu.");
+					System.out.println(pJokalaria.getIzena() +" Hori ez da taulako errenkada bat. Beste bat aukeratu.");
 				}
 			}
 			piezaZuzena = piezaZuzenaDa(pJokalaria, errNon-1, zutNon-1);
@@ -107,18 +107,18 @@ public class Partida {
 		mugitzekoPieza = Taula.getTaula().getLaukikoPieza(errNon-1, zutNon-1);
 		while(!mugZuzena) {
 			eginda = false;
-			System.out.println("Aukeratu zein zutabera mugitu nahi duzun pieza (A-tik H-ra)");
+			System.out.println(pJokalaria.getIzena() +" Aukeratu zein zutabera mugitu nahi duzun pieza (A-tik H-ra)");
 			while(! eginda){
 				try{
 					zutNora = Teklatua.getTeklatua().irakurriZut();
 					eginda = true;
 				}
 				catch(TaulatikKanpoException e){
-					System.out.println("Hori ez da taulako zutabe bat. Beste bat aukeratu.");
+					System.out.println(pJokalaria.getIzena() +" Hori ez da taulako zutabe bat. Beste bat aukeratu.");
 				}
 			}
 			eginda = false;
-			System.out.println("Aukeratu zein errenkadara mugitu nahi duzun pieza (1etik 8ra)");
+			System.out.println(pJokalaria.getIzena() +" Aukeratu zein errenkadara mugitu nahi duzun pieza (1etik 8ra)");
 			while(! eginda){
 				try{
 					errNora = Teklatua.getTeklatua().irakurriErr();
@@ -126,7 +126,7 @@ public class Partida {
 				}
 				catch(TaulatikKanpoException e){
 
-					System.out.println("Hori ez da taulako errenkada bat. Beste bat aukeratu.");
+					System.out.println(pJokalaria.getIzena() +" Hori ez da taulako errenkada bat. Beste bat aukeratu.");
 				}
 			}
 			mugZuzena = mugimenduaZuzenaDa(mugitzekoPieza, errNora-1, zutNora-1);

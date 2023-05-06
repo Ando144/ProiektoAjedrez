@@ -33,15 +33,16 @@ public class Erregina extends Pieza {
 				ahalDu=false;
 			}
 		}
-		//Comprueba si el movimiento que hace es vertical o horizontal
-		if((this.getErrenkada()!=zeinErrenkadara)&&(this.getZutabea()!=zeinZutabera))
+		//Comprueba si el movimiento que hace es vertical o horizontal y si es diagonal tambien
+		if(((this.getErrenkada()!=zeinErrenkadara)&&(this.getZutabea()!=zeinZutabera))||(Math.abs(this.getErrenkada()-zeinErrenkadara)!=Math.abs(this.getZutabea()-zeinZutabera)))
 		{
 			ahalDu=false;
 		}
 		//Comprueba que se este moviendo en diagonal
-        if(Math.abs(this.getErrenkada()-zeinErrenkadara)!=Math.abs(this.getZutabea()-zeinZutabera)){
+        /*if(Math.abs(this.getErrenkada()-zeinErrenkadara)!=Math.abs(this.getZutabea()-zeinZutabera)){
             ahalDu=false;
-        }
+        }*/
+		
 		if(ahalDu==true){
             //derecha
             if(this.getZutabea()<zeinZutabera){

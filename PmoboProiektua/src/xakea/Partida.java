@@ -67,7 +67,7 @@ public class Partida {
 		System.out.println("Bi jokalariek baietz bozkatzen baduzue jarraian, berdinketa adostuko duzue.");
 		erantzuna = Teklatua.getTeklatua().irakurriString();
 		aurrekoa = oraingoa;
-		if(erantzuna=="Bai"||erantzuna=="bai"){
+		if(erantzuna.equals("Bai")||erantzuna.equals("bai")){
 			oraingoa = true;
 		}else{
 			oraingoa = false;

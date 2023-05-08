@@ -34,7 +34,7 @@ public abstract class Pieza {
         this.zutabea = y;
     }
     
-    public abstract boolean mugituDaiteke(int zeinErrenkadara, int zeinZutabera);
+    public abstract boolean mugituDaiteke(int zeinErrenkadara, int zeinZutabera) throws MugimenduOkerraException;
     
     
     //METODOS PUESTOS POR ASIER F:
@@ -46,9 +46,11 @@ public abstract class Pieza {
     public boolean mugimenduLegalakDitu() {
     	for(int i=0; i<8; i++){
             for(int j=0; j<8; j++){
-                if(this.mugituDaiteke(i, j)){
+                try{
+                    this.mugituDaiteke(i, j);
                     return true;
                 }
+                catch(MugimenduOkerraException e){}
             }
         }
     	return false;

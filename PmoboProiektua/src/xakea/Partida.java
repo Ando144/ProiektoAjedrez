@@ -38,9 +38,13 @@ public class Partida {
 	    }
 	    for (int i = 0; i < 8; i++) {
 	        for (int j = 0; j < 8; j++) {
-	            if (erregea.mugituDaiteke(i, j) && !xakeanDago(i,j,pJokalaria)) {
-	                return false;
+	            try {
+					erregea.mugituDaiteke(i, j);
+					if(!xakeanDago(i,j,pJokalaria)){
+						return false;
+					}
 	            }
+				catch(MugimenduOkerraException e){}
 	        }
 	    }
 	    return true;
@@ -145,8 +149,9 @@ public class Partida {
 
 	/* hello */
 	//Metodo bat frogatzeko ea egin nahi duzun mugimendua onargarria den
-	private boolean mugimenduaZuzenaDa(Pieza mugitzekoPieza, int errNora, int zutNora) {
-		if(mugitzekoPieza.mugituDaiteke(errNora, zutNora)){
+	private boolean mugimenduaZuzenaDa(Pieza mugitzekoPieza, int errNora, int zutNora){
+		try{
+			mugitzekoPieza.mugituDaiteke(errNora, zutNora);
 			System.out.println(errNora+"  "+zutNora);
 			if(!Taula.getTaula().laukiaBetetaDago(errNora, zutNora)){
 				return true;
@@ -155,7 +160,7 @@ public class Partida {
 			}else{
 				System.out.println("Lauki horretan badaukazu zure pieza bat. Beste mugimendu bat egiten saiatu.");
 			}
-		}else{
+		}catch(MugimenduOkerraException e){
 			System.out.println("Ezin duzu mugimendu hori egin pieza horrekin. Beste mugimendu bat egiten saiatu.");
 		}
 		return false;

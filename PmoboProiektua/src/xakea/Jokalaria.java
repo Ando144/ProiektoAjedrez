@@ -58,9 +58,11 @@ public class Jokalaria {
 	public boolean posizioaMehatxatzenAriDa(int pErr, int pZut){
 		Iterator<Pieza> itr = this.getIteradorea();
 		while(itr.hasNext()){
-			if(itr.next().mugituDaiteke(pErr, pZut)){
+			try{
+				itr.next().mugituDaiteke(pErr, pZut);
 				return true;
 			}
+			catch(MugimenduOkerraException e){}
 		}
 		return false;
 	}

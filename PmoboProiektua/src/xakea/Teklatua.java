@@ -58,7 +58,7 @@ public class Teklatua {
 
 	public int irakurriErr() throws TaulatikKanpoException{
 		int aukera = sc.nextInt();sc.nextLine();
-		if(aukera >= 1 || aukera <=8){
+		if(aukera >= 1 && aukera <=8){
 			return aukera;
 		}else{
 			throw new TaulatikKanpoException();

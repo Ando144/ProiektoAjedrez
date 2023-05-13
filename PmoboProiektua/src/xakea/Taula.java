@@ -110,4 +110,8 @@ public class Taula {
                     return true;}
 		return false;
      }
+
+    public void taulaErreseteatu(){
+        nireTaula=null;
+    }
 }

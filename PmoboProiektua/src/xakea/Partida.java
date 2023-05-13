@@ -26,7 +26,6 @@ public class Partida {
 
 	public boolean partidaBukatuDa() {
 		return(this.xakeMate(jokalariZuria)||this.xakeMate(jokalariBeltza)||this.berdinketa());
-		
 	}
 	
 	public boolean xakeMate(Jokalaria pJokalaria) {
@@ -197,7 +196,7 @@ public class Partida {
 			System.out.println("Partida bukatu da. "+jokalariBeltza.getIzena()+" da irabazlea.");
 		}else if(this.xakeMate(jokalariBeltza)){
 			System.out.println("Partida bukatu da. "+jokalariZuria.getIzena()+" da irabazlea.");
-		}else {
+		}else { 
 			System.out.println("Partida bukatu da. Berdinketa dago.");
 		}
 	}

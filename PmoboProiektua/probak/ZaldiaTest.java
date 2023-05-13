@@ -29,6 +29,7 @@ public class ZaldiaTest{
         z1=null;
         z2=null;
         z3=null;
+        z4=null;
         Taula.getTaula().taulaErreseteatu();
     }
     @Test 

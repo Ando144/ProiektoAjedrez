@@ -14,8 +14,12 @@ public class Erregina extends Pieza {
         int desplZutabeak = Math.abs(zeinZutabera - this.getZutabea());
         ahalDu = desplErrenkadak <= 1 && desplZutabeak <= 1;*/
 		//Comprueba si el movimiento que hace es vertical o horizontal y si es diagonal tambien
-		if(((this.getErrenkada()!=zeinErrenkadara)&&(this.getZutabea()!=zeinZutabera))||(Math.abs(this.getErrenkada()-zeinErrenkadara)!=Math.abs(this.getZutabea()-zeinZutabera)))
+		if((this.getErrenkada()!=zeinErrenkadara)&&(this.getZutabea()!=zeinZutabera))
 		{
+			if(Math.abs(this.getErrenkada()-zeinErrenkadara)!=Math.abs(this.getZutabea()-zeinZutabera))
+			throw new MugimenduOkerraException();
+		}
+		if(this.getErrenkada()==zeinErrenkadara && this.getZutabea()==zeinZutabera){
 			throw new MugimenduOkerraException();
 		}
 		//derecha
@@ -34,7 +38,7 @@ public class Erregina extends Pieza {
 			//abajo derecha
 			else if(this.getErrenkada()>zeinErrenkadara){
 				while(this.getZutabea()+kont<zeinZutabera){
-					if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont, this.getZutabea()-kont)){
+					if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()-kont, this.getZutabea()+kont)){
 						throw new MugimenduOkerraException();
 					}
 					kont++;

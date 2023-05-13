@@ -108,6 +108,7 @@ public class Partida {
 			piezaZuzena = piezaZuzenaDa(pJokalaria, errNon-1, zutNon-1);
 		}
 		mugitzekoPieza = Taula.getTaula().getLaukikoPieza(errNon-1, zutNon-1);
+		mugitzekoPieza.aukeraPosibleak();
 		while(!mugZuzena) {
 			eginda = false;
 			System.out.println(pJokalaria.getIzena() +" Aukeratu zein zutabera mugitu nahi duzun pieza (A-tik H-ra)");

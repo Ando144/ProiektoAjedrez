@@ -11,10 +11,9 @@ public class Alfila extends Pieza {
     	boolean ahalDu = true;
         int kont=1;
         //Comprueba que se este moviendo en diagonal
-        if(Math.abs(this.getErrenkada()-zeinErrenkadara)!=Math.abs(this.getZutabea()-zeinZutabera)){
+        if((Math.abs(this.getErrenkada()-zeinErrenkadara)!=Math.abs(this.getZutabea()-zeinZutabera)) || (this.getErrenkada()==zeinErrenkadara && this.getZutabea()==zeinZutabera)){
             throw new MugimenduOkerraException();
         }
-        //Comprueba que no haya una pieza de su mismo color
             //derecha
         if(this.getZutabea()<zeinZutabera){
             //arriba derecha
@@ -31,7 +30,7 @@ public class Alfila extends Pieza {
             //abajo derecha
             else if(this.getErrenkada()>zeinErrenkadara){
                 while(this.getZutabea()+kont<zeinZutabera){
-                    if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()+kont, this.getZutabea()-kont)){
+                    if(Taula.getTaula().laukiaBetetaDago(this.getErrenkada()-kont, this.getZutabea()+kont)){
                         throw new MugimenduOkerraException();
                     }
                     kont++;

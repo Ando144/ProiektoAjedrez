@@ -131,7 +131,6 @@ public class Erregina extends Pieza {
 				*/
 				while((kont < zeinErrenkadara)) 
 				{
-					System.out.println(Taula.getTaula().getLaukikoPieza(kont, this.getZutabea()));
 					/*Mira aver si la casilla especificada tiene alguna pieza y si es el caso ahalDu=false */
 					if(Taula.getTaula().laukiaBetetaDago(kont, this.getZutabea())) 
 					{

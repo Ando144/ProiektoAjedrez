@@ -48,11 +48,43 @@ public abstract class Pieza {
             for(int j=0; j<8; j++){
                 try{
                     this.mugituDaiteke(i, j);
-                    return true;
+                    if(!Taula.getTaula().laukiaBetetaDago(i, j)){
+                        return true;
+                    }else if(Taula.getTaula().getLaukikoPieza(i, j).zuriaDa()!=this.zuriaDa()){
+                        return true;
+                    }
                 }
                 catch(MugimenduOkerraException e){}
             }
         }
     	return false;
+    }
+
+    public void aukeraPosibleak(){
+        String ikurra;
+        for(int i = 7; i>=0; i--){
+            System.out.println("");
+            System.out.print(i+1+" ");
+            for(int j=0; j<=7; j++){
+                try{
+                    this.mugituDaiteke(i, j);
+                    ikurra=("\u001B[93m" + "X" + "\u001B[0m");
+                }
+                catch(MugimenduOkerraException e){
+                    if(Taula.getTaula().getLaukikoPieza(i, j)!=null){
+                        ikurra = Taula.getTaula().getLaukikoPieza(i, j).getIzena();
+                    }else{
+                        ikurra = "□";
+                    }
+                }
+                System.out.print(ikurra + " ");
+            }
+        }
+        System.out.println("");
+        System.out.print("  A B C D E F G H");
+        System.out.println("");
+    }
+    public void aldatuIzena(String pIzena){
+        this.izena=pIzena;
     }
 }

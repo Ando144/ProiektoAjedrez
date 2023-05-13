@@ -16,7 +16,7 @@ public class Dorrea extends Pieza
     	int kont =0;
     	boolean ahalDu = true;
 		/*Para ver si el movimiento que quiere hacer es el correspondiente a la torre(Horizzontal o Vertical) */
-		if((this.getErrenkada()!=zeinErrenkadara)&&(this.getZutabea()!=zeinZutabera))
+		if(((this.getErrenkada()!=zeinErrenkadara)&&(this.getZutabea()!=zeinZutabera))||(this.getErrenkada()==zeinErrenkadara && this.getZutabea()==zeinZutabera))
 		{
 			throw new MugimenduOkerraException();
 		}
@@ -90,7 +90,6 @@ public class Dorrea extends Pieza
 				*/
 				while((kont < zeinErrenkadara)) 
 				{
-					System.out.println(Taula.getTaula().getLaukikoPieza(kont, this.getZutabea()));
 					/*Mira aver si la casilla especificada tiene alguna pieza y si es el caso ahalDu=false */
 					if(Taula.getTaula().laukiaBetetaDago(kont, this.getZutabea())) 
 					{

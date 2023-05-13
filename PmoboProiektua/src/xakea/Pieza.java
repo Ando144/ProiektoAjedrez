@@ -68,7 +68,11 @@ public abstract class Pieza {
             for(int j=0; j<=7; j++){
                 try{
                     this.mugituDaiteke(i, j);
-                    ikurra=("\u001B[93m" + "X" + "\u001B[0m");
+                    if(Taula.getTaula().getLaukikoPieza(i, j)==null){
+                        ikurra=("\u001B[93m" + "X" + "\u001B[0m");
+                    }else{
+                        ikurra = Taula.getTaula().getLaukikoPieza(i, j).getIzena();
+                    }
                 }
                 catch(MugimenduOkerraException e){
                     if(Taula.getTaula().getLaukikoPieza(i, j)!=null){

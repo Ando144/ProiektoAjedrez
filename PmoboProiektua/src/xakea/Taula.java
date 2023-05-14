@@ -114,4 +114,8 @@ public class Taula {
     public void taulaErreseteatu(){
         nireTaula=null;
     }
+    
+    public void reset() {
+    	nireTaula = new Taula();
+    }
 }

@@ -76,7 +76,7 @@ public class Taula {
         return err >= 0 && err < tamaina && zut >= 0 && zut < tamaina;
     }
 
-    public void taulaInprimatu(){//otra forma posible de printear que se me ocurre
+    public void taulaInprimatu(){
         String ikurra;
         for(int i = 7; i>=0; i--){
             System.out.println("");

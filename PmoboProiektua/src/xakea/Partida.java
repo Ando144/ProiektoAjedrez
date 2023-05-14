@@ -35,12 +35,16 @@ public class Partida {
 	    if (!xakeanDago(errErregea, zutErregea, pJokalaria)) {
 	        return false;
 	    }
-	    for (int i = 0; i < 8; i++) {
-	        for (int j = 0; j < 8; j++) {
+		for (int i = 0; i <= 7; i++) {
+	        for (int j = 0; j <= 7; j++) {
 	            try {
 					erregea.mugituDaiteke(i, j);
 					if(!xakeanDago(i,j,pJokalaria)){
-						return false;
+						if(!Taula.getTaula().laukiaBetetaDago(i, j)){
+							return false;
+						}else if(Taula.getTaula().getLaukikoPieza(i, j).zuriaDa()!=pJokalaria.zuriaDa()){
+							return false;
+						}
 					}
 	            }
 				catch(MugimenduOkerraException e){}
@@ -63,10 +67,11 @@ public class Partida {
 	    }
 	}
 	
+	boolean oraingoa = false, aurrekoa = false;
 	public boolean berdinketa() {
-		boolean oraingoa = false, aurrekoa = false;
 		String erantzuna;
-		System.out.println("Berdinketa egotea bozkatzen duzu? Baiezko kasuan, 'Bai' idatzi. Bestela, beste edozer idatzi.");
+		System.out.println("");
+		System.out.println(oraingoJokalaria.getIzena()+", berdinketa egotea bozkatzen duzu? Baiezko kasuan, 'Bai' idatzi. Bestela, beste edozer idatzi.");
 		System.out.println("Bi jokalariek baietz bozkatzen baduzue jarraian, berdinketa adostuko duzue.");
 		erantzuna = Teklatua.getTeklatua().irakurriString();
 		aurrekoa = oraingoa;
@@ -84,7 +89,7 @@ public class Partida {
 		Pieza mugitzekoPieza = null;
 		while(!piezaZuzena) {
 			eginda = false;
-			System.out.println(pJokalaria.getIzena() + " Aukeratu mugitu nahi duzun piezaren zutabea (A-tik H-ra)");
+			System.out.println(pJokalaria.getIzena() + ", aukeratu mugitu nahi duzun piezaren zutabea (A-tik H-ra)");
 			while(! eginda){
 				try{
 					zutNon = Teklatua.getTeklatua().irakurriZut();
@@ -95,7 +100,7 @@ public class Partida {
 				}
 			}
 			eginda = false;
-			System.out.println( pJokalaria.getIzena() +" Aukeratu mugitu nahi duzun piezaren errenkada (1etik 8ra)");
+			System.out.println( pJokalaria.getIzena() +", aukeratu mugitu nahi duzun piezaren errenkada (1etik 8ra)");
 			while(! eginda){
 				try{
 					errNon = Teklatua.getTeklatua().irakurriErr();
@@ -111,7 +116,7 @@ public class Partida {
 		mugitzekoPieza.aukeraPosibleak();
 		while(!mugZuzena) {
 			eginda = false;
-			System.out.println(pJokalaria.getIzena() +" Aukeratu zein zutabera mugitu nahi duzun pieza (A-tik H-ra)");
+			System.out.println(pJokalaria.getIzena() +", aukeratu zein zutabera mugitu nahi duzun pieza (A-tik H-ra)");
 			while(! eginda){
 				try{
 					zutNora = Teklatua.getTeklatua().irakurriZut();
@@ -122,7 +127,7 @@ public class Partida {
 				}
 			}
 			eginda = false;
-			System.out.println(pJokalaria.getIzena() +" Aukeratu zein errenkadara mugitu nahi duzun pieza (1etik 8ra)");
+			System.out.println(pJokalaria.getIzena() +", aukeratu zein errenkadara mugitu nahi duzun pieza (1etik 8ra)");
 			while(! eginda){
 				try{
 					errNora = Teklatua.getTeklatua().irakurriErr();
@@ -147,12 +152,10 @@ public class Partida {
 		Taula.getTaula().piezaJarri(mugitzekoPieza, errNora-1, zutNora-1);
 	}
 
-	/* hello */
 	//Metodo bat frogatzeko ea egin nahi duzun mugimendua onargarria den
 	private boolean mugimenduaZuzenaDa(Pieza mugitzekoPieza, int errNora, int zutNora){
 		try{
 			mugitzekoPieza.mugituDaiteke(errNora, zutNora);
-			System.out.println(errNora+"  "+zutNora);
 			if(!Taula.getTaula().laukiaBetetaDago(errNora, zutNora)){
 				return true;
 			}else if(Taula.getTaula().getLaukikoPieza(errNora, zutNora).zuriaDa()!=mugitzekoPieza.zuriaDa()){
@@ -197,10 +200,11 @@ public class Partida {
 	}
 	
 	public void emaitzaInprimatu() {
+		Taula.getTaula().taulaInprimatu();
 		if(this.xakeMate(jokalariZuria)) {
-			System.out.println("Partida bukatu da. "+jokalariBeltza.getIzena()+" da irabazlea.");
+			System.out.println("Xake mate dago, "+jokalariBeltza.getIzena()+" da irabazlea.");
 		}else if(this.xakeMate(jokalariBeltza)){
-			System.out.println("Partida bukatu da. "+jokalariZuria.getIzena()+" da irabazlea.");
+			System.out.println("Xake mate dago, "+jokalariZuria.getIzena()+" da irabazlea.");
 		}else { 
 			System.out.println("Partida bukatu da. Berdinketa dago.");
 		}

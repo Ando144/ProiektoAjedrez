@@ -170,7 +170,11 @@ public class Partida {
 	private boolean piezaZuzenaDa(Jokalaria jokalaria, int errNon, int zutNon) {
 		if(Taula.getTaula().getLaukikoPieza(errNon, zutNon)!=null) {
 			 if(Taula.getTaula().getLaukikoPieza(errNon, zutNon).zuriaDa() == jokalaria.zuriaDa()) {
-				 if(Taula.getTaula().getLaukikoPieza(errNon, zutNon).mugimenduLegalakDitu()) {
+				 Erregea errege=jokalaria.getErregea();
+				 if((this.xakeanDago(errege.getErrenkada(), errege.getZutabea(), jokalaria)) && (!Taula.getTaula().getLaukikoPieza(errNon, zutNon).equals (errege))){
+					System.out.println("Zure erregea xakean dago, hau mugitu behar duzu");
+				 }
+				 else if(Taula.getTaula().getLaukikoPieza(errNon, zutNon).mugimenduLegalakDitu()) {
 					 return true;
 				 }else {
 					 System.out.println("Pieza hau ezin duzu mugitu orain. Beste koordenatu batzuk aukeratu.");

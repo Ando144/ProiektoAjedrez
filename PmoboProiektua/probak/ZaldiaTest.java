@@ -51,7 +51,22 @@ public class ZaldiaTest{
             assertFalse(z1.mugituDaiteke(4, 5));
             Taula.getTaula().piezaJarri(z4, 6, 3);
             assertFalse(z1.mugituDaiteke(6, 3));//Bere kolore berdineko pieza bat egotekotan hau ezin izango da mugitu hona
+            assertFalse(z1.mugituDaiteke(4, 4));//Ezin da bere posizio berdinera mugitu
         }
         catch(MugimenduOkerraException e){}
+    }
+    @Test
+    public void mugimenduLegalakDitu(){
+        Taula.getTaula().setLaukianPieza(6,3, z4);
+        Taula.getTaula().setLaukianPieza(6, 5, z4);
+        Taula.getTaula().setLaukianPieza(2, 3, z4);
+        Taula.getTaula().setLaukianPieza(2, 5, z4);
+        assertTrue(z1.mugimenduLegalakDitu());
+        Taula.getTaula().setLaukianPieza(3, 6, z4);
+        Taula.getTaula().setLaukianPieza(5, 6, z4);
+        Taula.getTaula().setLaukianPieza(3, 2, z4);
+        assertTrue(z1.mugimenduLegalakDitu());
+        Taula.getTaula().setLaukianPieza(5, 2, z4);
+        assertFalse(z1.mugimenduLegalakDitu());
     }
 }

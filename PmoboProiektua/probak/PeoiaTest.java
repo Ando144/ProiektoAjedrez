@@ -48,6 +48,7 @@ public class PeoiaTest {
             Taula.getTaula().piezaJarri(p3, 7, 1);
             assertFalse(p1.mugituDaiteke(4, 2)); //Pieza ez dago hasieran bi lauki mugitzeko
             assertFalse(p1.mugituDaiteke(3, 3)); //Ez dago piezarik diagonalean hau jateko
+            assertFalse(p1.mugituDaiteke(2, 2));//Ezin da bere posizio berdinera mugitu
         }
         catch(MugimenduOkerraException e){}
         //Test berdinak kontrako kolorearekin
@@ -63,8 +64,20 @@ public class PeoiaTest {
             Taula.getTaula().piezaJarri(p2, 1, 1);
             assertFalse(p4.mugituDaiteke(3, 2)); //Pieza ez dago hasieran bi lauki mugitzeko
             assertFalse(p4.mugituDaiteke(4, 3)); //Ez dago piezarik diagonalean hau jateko
+            assertFalse(p4.mugituDaiteke(5, 2));//Ezin da bere posizio berdinera mugitu
         }
         catch(MugimenduOkerraException e){}
-        
+    }
+    @Test
+    public void mugimenduLegalakDitu(){
+        //Para estos test uso setLaukianPieza en vez de piezaJarri por que esto las duplica y asi no tengo que crear mas
+        Taula.getTaula().piezaJarri(p1, 1, 1);
+        Taula.getTaula().setLaukianPieza(3, 1, p2);
+        assertTrue(p1.mugimenduLegalakDitu());
+        Taula.getTaula().setLaukianPieza(2, 1, p2);
+        assertFalse(p1.mugimenduLegalakDitu());
+        Taula.getTaula().piezaJarri(p3, 2, 2);
+        assertTrue(p1.mugimenduLegalakDitu());
+
     }
 }

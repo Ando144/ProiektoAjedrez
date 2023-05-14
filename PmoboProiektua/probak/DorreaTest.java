@@ -16,7 +16,7 @@ public class DorreaTest {
     public void setUp() throws Exception{
         d1 = new Dorrea(true, 4, 4, "zuria");
         d2 = new Dorrea(false, 5, 4, "Beltza");
-        d3 = new Dorrea(true, 1, 1, "Beltza");
+        d3 = new Dorrea(true, 1, 1, "zuria");
         
         Taula.getTaula().setLaukianPieza(4, 4, d1);
         Taula.getTaula().setLaukianPieza(5, 4, d2);
@@ -43,7 +43,19 @@ public class DorreaTest {
             assertFalse(d1.mugituDaiteke(4, 6));//Dorrea ezin da beste piezen gainetik pasa, kontrako kolorekoak badira ere
             Taula.getTaula().piezaJarri(d3, 0, 4);
             assertFalse(d1.mugituDaiteke(0, 4));//Ezin da mugitu bere kolore berdineko pieza baten posiziora
+            assertFalse(d1.mugituDaiteke(4, 4));//Ezin da bere posizio berdinera mugitu
         }
         catch(MugimenduOkerraException e){}
+    }
+    @Test 
+    public void mugimenduLegalakDitu(){
+        //Para estos test uso setLaukianPieza en vez de PiezaJarri por que esto las duplica y asi no tengo que crear mas
+        Taula.getTaula().piezaJarri(d1, 4, 4);
+        Taula.getTaula().setLaukianPieza(3, 4, d3);
+        Taula.getTaula().setLaukianPieza(5, 4, d3);
+        Taula.getTaula().setLaukianPieza(4, 3, d3);
+        assertTrue(d1.mugimenduLegalakDitu());
+        Taula.getTaula().setLaukianPieza(4, 5, d3);
+        assertFalse(d1.mugimenduLegalakDitu());
     }
 }

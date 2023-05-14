@@ -42,8 +42,19 @@ public class AlfilaTest {
             Taula.getTaula().piezaJarri(a2, 2, 2);
             assertFalse(a1.mugituDaiteke(1, 1));//Ezin da beste pieza baten gainetik pasa, hau kontrako kolorekoa bada ere
             assertFalse(a1.mugituDaiteke(6,6));//Ezin da bere koloreko pieza baten posiziora mugitu
+            assertFalse(a1.mugituDaiteke(4, 4));//Ezin da bere posizio berdinera mugitu
         }
         catch(MugimenduOkerraException e){}
+    }
+    @Test
+    public void mugimenduLegalakDitu(){
+        //Para estos test uso setLaukianPieza en vez de PiezaJarri por que esto las duplica y asi no tengo que crear mas
+        Taula.getTaula().setLaukianPieza(5, 5, a3); 
+        Taula.getTaula().setLaukianPieza(5, 3, a3); 
+        Taula.getTaula().setLaukianPieza(3, 5, a3);
+        assertTrue(a1.mugimenduLegalakDitu());
+        Taula.getTaula().setLaukianPieza(3, 3, a3);
+        assertFalse(a1.mugimenduLegalakDitu());
     }
     
 }

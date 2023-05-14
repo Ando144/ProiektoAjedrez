@@ -11,7 +11,7 @@ public class Erregea extends Pieza {
     	boolean ahalDu = true;
     	int desplErrenkadak = Math.abs(zeinErrenkadara - this.getErrenkada());
         int desplZutabeak = Math.abs(zeinZutabera - this.getZutabea());
-        if (desplErrenkadak > 1 || desplZutabeak > 1){
+        if ((desplErrenkadak > 1 || desplZutabeak > 1) || (desplErrenkadak==0 && desplZutabeak==0) ){
 			throw new MugimenduOkerraException();
 		}
         return ahalDu;
